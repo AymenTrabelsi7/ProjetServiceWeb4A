@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="index">BuyYourself</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -37,7 +37,7 @@
 					</ul></li>
 					
 			</ul>
-			<form class="d-flex">
+			<form class="d-flex" action="search">
 				<input class="form-control me-2" type="search" placeholder="Rechercher"
 					aria-label="Rechercher">
 				<button class="btn btn-outline-dark" type="submit">Rechercher</button>
