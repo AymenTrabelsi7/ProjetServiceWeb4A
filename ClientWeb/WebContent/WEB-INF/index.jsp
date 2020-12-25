@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<%@ include file="/common/include.jsp"%>
+<%@ include file="/WEB-INF/common/include.jsp"%>
+
 
 <title>BuyYourself | Everything a human needs.</title>
 </head>
@@ -15,17 +16,17 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xxl">
-				<%@ include file="/common/header.jsp"%>
+				<%@ include file="/WEB-INF/common/header.jsp"%>
 			</div>
 		</div>
 
 		<div class="row">
 
 			<div class="col-xxl mx-5">
-				<jsp:include page="/common/product_box.jsp">
+				<jsp:include page="/WEB-INF/common/product_box.jsp">
 					<jsp:param name="nom" value="PC" />
 					<jsp:param name="desc" value="Un PC normal" />
-					<jsp:param name="prix" value="800" />
+					<jsp:param name="prix" value="48948265594" />
 				</jsp:include>
 			</div>
 
@@ -33,9 +34,10 @@
 
 		<div class="row">
 			<div class="col-xxl">
-				<%@ include file="/common/footer.jsp"%>
+				<%@ include file="/WEB-INF/common/footer.jsp"%>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

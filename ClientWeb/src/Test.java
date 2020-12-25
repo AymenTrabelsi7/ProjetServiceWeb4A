@@ -12,13 +12,13 @@ import soapinterface.ClassTestService;
  * Servlet implementation class test
  */
 @WebServlet("/test")
-public class test extends HttpServlet {
+public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ClassTest stub = new ClassTestService().getClassTestPort();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public test() {
+    public Test() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("salut", stub.bonjour());
-		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
 	}
 
 	/**

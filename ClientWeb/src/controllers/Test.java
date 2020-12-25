@@ -1,24 +1,25 @@
 package controllers;
-
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import soapinterface.ClassTest;
+import soapinterface.ClassTestService;
+
 /**
- * Servlet implementation class Index
+ * Servlet implementation class test
  */
-@WebServlet("/index")
-public class Index extends HttpServlet {
+@WebServlet("/test")
+public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	//ClassTest stub = new ClassTestService().getClassTestPort();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Index() {
+    public Test() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +28,9 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("connected", false);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		//request.setAttribute("salut", stub.bonjour());
+		this.getServletContext().getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
 	}
 
 	/**
