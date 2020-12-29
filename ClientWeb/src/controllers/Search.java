@@ -1,4 +1,5 @@
 package controllers;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import soapinterface.ClassTest;
-import soapinterface.ClassTestService;
-
 /**
- * Servlet implementation class test
+ * Servlet implementation class Search
  */
-@WebServlet("/test")
-public class Test extends HttpServlet {
+@WebServlet("/search")
+public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//ClassTest stub = new ClassTestService().getClassTestPort();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Test() {
+    public Search() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,8 +27,7 @@ public class Test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//request.setAttribute("salut", stub.bonjour());
-		this.getServletContext().getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
 	}
 
 	/**

@@ -6,18 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Product
+ * Servlet implementation class SignOut
  */
-@WebServlet("/product")
-public class Product extends HttpServlet {
+@WebServlet("/signout")
+public class SignOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Product() {
+    public SignOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,18 +28,15 @@ public class Product extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		long id_produit = Long.parseLong(request.getParameter("id"));
-		//Ici utiliser le service SOAP pour avoir les infos du produit
-		request.setAttribute("id", id_produit);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession sess = request.getSession();
+		sess.setAttribute("connected", false);
+		response.sendRedirect("index");
 	}
 
 }
