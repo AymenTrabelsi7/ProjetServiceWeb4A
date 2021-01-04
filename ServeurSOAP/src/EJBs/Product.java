@@ -1,13 +1,36 @@
-package controllers;
-public class ProductTest {
+package EJBs;
+
+import java.io.Serializable;
+
+import javax.ejb.Stateless;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Stateless
+@Entity
+@Table(name="produit")
+@XmlRootElement
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 6432662000163956462L;
 	
-	private int id,prix,stock,score;
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private int id;
+	
+	private int prix,stock,score;
 	private String nom,desc,categorie;
 	
 
 	
-	public ProductTest(int id, int prix, int stock, int score, String nom, String desc, String categorie) {
-		super();
+	public Product() {}
+	
+	
+	public Product(int id, int prix, int stock, int score, String nom, String desc, String categorie) {		
 		this.id = id;
 		this.prix = prix;
 		this.stock = stock;
@@ -78,6 +101,11 @@ public class ProductTest {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	
+	@Override
+	public String toString() {
+		return "Produit : " + "[id = " + id + "]";
 	}
 	
 	

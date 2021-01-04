@@ -24,10 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Bonjour_QNAME = new QName("http://www.test.fr", "bonjour");
-    private final static QName _BonjourResponse_QNAME = new QName("http://www.test.fr", "bonjourResponse");
-    private final static QName _Hello_QNAME = new QName("http://www.test.fr", "hello");
-    private final static QName _HelloResponse_QNAME = new QName("http://www.test.fr", "helloResponse");
+    private final static QName _GetProduit_QNAME = new QName("localhost:8085/", "getProduit");
+    private final static QName _GetProduitResponse_QNAME = new QName("localhost:8085/", "getProduitResponse");
+    private final static QName _GetProduitsIndex_QNAME = new QName("localhost:8085/", "getProduitsIndex");
+    private final static QName _GetProduitsIndexResponse_QNAME = new QName("localhost:8085/", "getProduitsIndexResponse");
+    private final static QName _GetProduitsSearch_QNAME = new QName("localhost:8085/", "getProduitsSearch");
+    private final static QName _GetProduitsSearchResponse_QNAME = new QName("localhost:8085/", "getProduitsSearchResponse");
+    private final static QName _Product_QNAME = new QName("localhost:8085/", "product");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soapinterface
@@ -37,87 +40,150 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Bonjour }
+     * Create an instance of {@link GetProduit }
      * 
      */
-    public Bonjour createBonjour() {
-        return new Bonjour();
+    public GetProduit createGetProduit() {
+        return new GetProduit();
     }
 
     /**
-     * Create an instance of {@link BonjourResponse }
+     * Create an instance of {@link GetProduitResponse }
      * 
      */
-    public BonjourResponse createBonjourResponse() {
-        return new BonjourResponse();
+    public GetProduitResponse createGetProduitResponse() {
+        return new GetProduitResponse();
     }
 
     /**
-     * Create an instance of {@link Hello }
+     * Create an instance of {@link GetProduitsIndex }
      * 
      */
-    public Hello createHello() {
-        return new Hello();
+    public GetProduitsIndex createGetProduitsIndex() {
+        return new GetProduitsIndex();
     }
 
     /**
-     * Create an instance of {@link HelloResponse }
+     * Create an instance of {@link GetProduitsIndexResponse }
      * 
      */
-    public HelloResponse createHelloResponse() {
-        return new HelloResponse();
+    public GetProduitsIndexResponse createGetProduitsIndexResponse() {
+        return new GetProduitsIndexResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Bonjour }{@code >}
+     * Create an instance of {@link GetProduitsSearch }
+     * 
+     */
+    public GetProduitsSearch createGetProduitsSearch() {
+        return new GetProduitsSearch();
+    }
+
+    /**
+     * Create an instance of {@link GetProduitsSearchResponse }
+     * 
+     */
+    public GetProduitsSearchResponse createGetProduitsSearchResponse() {
+        return new GetProduitsSearchResponse();
+    }
+
+    /**
+     * Create an instance of {@link Product }
+     * 
+     */
+    public Product createProduct() {
+        return new Product();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduit }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Bonjour }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduit }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.test.fr", name = "bonjour")
-    public JAXBElement<Bonjour> createBonjour(Bonjour value) {
-        return new JAXBElement<Bonjour>(_Bonjour_QNAME, Bonjour.class, null, value);
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduit")
+    public JAXBElement<GetProduit> createGetProduit(GetProduit value) {
+        return new JAXBElement<GetProduit>(_GetProduit_QNAME, GetProduit.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BonjourResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BonjourResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduitResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.test.fr", name = "bonjourResponse")
-    public JAXBElement<BonjourResponse> createBonjourResponse(BonjourResponse value) {
-        return new JAXBElement<BonjourResponse>(_BonjourResponse_QNAME, BonjourResponse.class, null, value);
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduitResponse")
+    public JAXBElement<GetProduitResponse> createGetProduitResponse(GetProduitResponse value) {
+        return new JAXBElement<GetProduitResponse>(_GetProduitResponse_QNAME, GetProduitResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitsIndex }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduitsIndex }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.test.fr", name = "hello")
-    public JAXBElement<Hello> createHello(Hello value) {
-        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduitsIndex")
+    public JAXBElement<GetProduitsIndex> createGetProduitsIndex(GetProduitsIndex value) {
+        return new JAXBElement<GetProduitsIndex>(_GetProduitsIndex_QNAME, GetProduitsIndex.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitsIndexResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduitsIndexResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.test.fr", name = "helloResponse")
-    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
-        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduitsIndexResponse")
+    public JAXBElement<GetProduitsIndexResponse> createGetProduitsIndexResponse(GetProduitsIndexResponse value) {
+        return new JAXBElement<GetProduitsIndexResponse>(_GetProduitsIndexResponse_QNAME, GetProduitsIndexResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitsSearch }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduitsSearch }{@code >}
+     */
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduitsSearch")
+    public JAXBElement<GetProduitsSearch> createGetProduitsSearch(GetProduitsSearch value) {
+        return new JAXBElement<GetProduitsSearch>(_GetProduitsSearch_QNAME, GetProduitsSearch.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitsSearchResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetProduitsSearchResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "localhost:8085/", name = "getProduitsSearchResponse")
+    public JAXBElement<GetProduitsSearchResponse> createGetProduitsSearchResponse(GetProduitsSearchResponse value) {
+        return new JAXBElement<GetProduitsSearchResponse>(_GetProduitsSearchResponse_QNAME, GetProduitsSearchResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Product }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Product }{@code >}
+     */
+    @XmlElementDecl(namespace = "localhost:8085/", name = "product")
+    public JAXBElement<Product> createProduct(Product value) {
+        return new JAXBElement<Product>(_Product_QNAME, Product.class, null, value);
     }
 
 }

@@ -1,13 +1,16 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import soapinterface.ProductService;
+import soapinterface.ProductServiceService;
 
 /**
  * Servlet implementation class Index
@@ -16,7 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 public class Index extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-    ArrayList<ProductTest> home_products = new ArrayList<ProductTest>(0);
+    List<soapinterface.Product> home_products;
+    ProductService stub = new ProductServiceService().getProductServicePort();
+    
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,10 +35,7 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		home_products.add(new ProductTest(1,20,"Téléphone","Un téléphone"));
-		home_products.add(new ProductTest(2,150,"Disque Dur","Un Disque dur 2TB"));
-		home_products.add(new ProductTest(3,80,"Cyberpunk 2077 PS5","Le dernier jeu de CD-Projekt sur la dernière console de Sony"));
-		home_products.add(new ProductTest(4,3000,"Cuisine","Une Cuisine high-tech"));
+		home_products = stub.getProduitsIndex();
 		request.setAttribute("connected", false);
 		request.setAttribute("home_products", home_products);
 		request.setCharacterEncoding("UTF-8");

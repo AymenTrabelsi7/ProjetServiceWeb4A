@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<div class="container-fluid">
+	<div class="container-sm">
 		<a class="navbar-brand" href="index">BuyYourself</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
@@ -39,7 +39,7 @@
 			</ul>
 			<form class="d-flex" action="search">
 				<input class="form-control me-2" type="search" placeholder="Rechercher"
-					aria-label="Rechercher">
+					aria-label="Rechercher" name="q" id="q">
 				<button class="btn btn-outline-secondary" type="submit">Rechercher</button>
 			</form>
 		</div>

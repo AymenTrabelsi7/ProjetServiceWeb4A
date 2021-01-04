@@ -1,2 +1,2 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.test.fr")
+@javax.xml.bind.annotation.XmlSchema(namespace = "localhost:8085/")
 package soapinterface;

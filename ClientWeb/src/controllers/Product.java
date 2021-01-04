@@ -1,11 +1,16 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import soapinterface.ProductService;
+import soapinterface.ProductServiceService;
 
 /**
  * Servlet implementation class Product
@@ -13,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/product")
 public class Product extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	soapinterface.Product produit;
+	ProductService stub = new ProductServiceService().getProductServicePort();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,9 +33,10 @@ public class Product extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		long id_produit = Long.parseLong(request.getParameter("id"));
+		int id_produit = Integer.parseInt(request.getParameter("id"));
+		produit = stub.getProduit(id_produit);
 		//Ici utiliser le service SOAP pour avoir les infos du produit
-		request.setAttribute("id", id_produit);
+		request.setAttribute("produit", produit);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(request, response);
 	}
 
