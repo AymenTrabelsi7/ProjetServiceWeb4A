@@ -17,20 +17,20 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ProductServiceService", targetNamespace = "localhost:8085/", wsdlLocation = "http://localhost:9000/?wsdl")
+@WebServiceClient(name = "ProductServiceService", targetNamespace = "http://www.polytech.fr", wsdlLocation = "http://localhost:9000/product?wsdl")
 public class ProductServiceService
     extends Service
 {
 
     private final static URL PRODUCTSERVICESERVICE_WSDL_LOCATION;
     private final static WebServiceException PRODUCTSERVICESERVICE_EXCEPTION;
-    private final static QName PRODUCTSERVICESERVICE_QNAME = new QName("localhost:8085/", "ProductServiceService");
+    private final static QName PRODUCTSERVICESERVICE_QNAME = new QName("http://www.polytech.fr", "ProductServiceService");
 
     static {
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:9000/?wsdl");
+            url = new URL("http://localhost:9000/product?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -69,7 +69,7 @@ public class ProductServiceService
      */
     @WebEndpoint(name = "ProductServicePort")
     public ProductService getProductServicePort() {
-        return super.getPort(new QName("localhost:8085/", "ProductServicePort"), ProductService.class);
+        return super.getPort(new QName("http://www.polytech.fr", "ProductServicePort"), ProductService.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class ProductServiceService
      */
     @WebEndpoint(name = "ProductServicePort")
     public ProductService getProductServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("localhost:8085/", "ProductServicePort"), ProductService.class, features);
+        return super.getPort(new QName("http://www.polytech.fr", "ProductServicePort"), ProductService.class, features);
     }
 
     private static URL __getWsdlLocation() {

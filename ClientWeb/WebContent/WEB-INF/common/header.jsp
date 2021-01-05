@@ -37,8 +37,8 @@
 					</ul></li>
 					
 			</ul>
-			<form class="d-flex" action="search">
-				<input class="form-control me-2" type="search" placeholder="Rechercher"
+			<form class="d-flex" action="search" method="post">
+				<input class="form-control me-2" type="text" placeholder="Rechercher"
 					aria-label="Rechercher" name="q" id="q">
 				<button class="btn btn-outline-secondary" type="submit">Rechercher</button>
 			</form>

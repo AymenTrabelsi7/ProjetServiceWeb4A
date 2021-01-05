@@ -18,7 +18,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "ProductService", targetNamespace = "localhost:8085/")
+@WebService(name = "ProductService", targetNamespace = "http://www.polytech.fr")
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -32,9 +32,9 @@ public interface ProductService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProduitsIndex", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduitsIndex")
-    @ResponseWrapper(localName = "getProduitsIndexResponse", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduitsIndexResponse")
-    @Action(input = "localhost:8085/ProductService/getProduitsIndexRequest", output = "localhost:8085/ProductService/getProduitsIndexResponse")
+    @RequestWrapper(localName = "getProduitsIndex", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsIndex")
+    @ResponseWrapper(localName = "getProduitsIndexResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsIndexResponse")
+    @Action(input = "http://www.polytech.fr/ProductService/getProduitsIndexRequest", output = "http://www.polytech.fr/ProductService/getProduitsIndexResponse")
     public List<Product> getProduitsIndex();
 
     /**
@@ -45,9 +45,9 @@ public interface ProductService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProduit", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduit")
-    @ResponseWrapper(localName = "getProduitResponse", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduitResponse")
-    @Action(input = "localhost:8085/ProductService/getProduitRequest", output = "localhost:8085/ProductService/getProduitResponse")
+    @RequestWrapper(localName = "getProduit", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduit")
+    @ResponseWrapper(localName = "getProduitResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitResponse")
+    @Action(input = "http://www.polytech.fr/ProductService/getProduitRequest", output = "http://www.polytech.fr/ProductService/getProduitResponse")
     public Product getProduit(
         @WebParam(name = "id", targetNamespace = "")
         int id);
@@ -60,9 +60,9 @@ public interface ProductService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProduitsSearch", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduitsSearch")
-    @ResponseWrapper(localName = "getProduitsSearchResponse", targetNamespace = "localhost:8085/", className = "soapinterface.GetProduitsSearchResponse")
-    @Action(input = "localhost:8085/ProductService/getProduitsSearchRequest", output = "localhost:8085/ProductService/getProduitsSearchResponse")
+    @RequestWrapper(localName = "getProduitsSearch", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsSearch")
+    @ResponseWrapper(localName = "getProduitsSearchResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsSearchResponse")
+    @Action(input = "http://www.polytech.fr/ProductService/getProduitsSearchRequest", output = "http://www.polytech.fr/ProductService/getProduitsSearchResponse")
     public List<Product> getProduitsSearch(
         @WebParam(name = "tokens", targetNamespace = "")
         List<String> tokens);

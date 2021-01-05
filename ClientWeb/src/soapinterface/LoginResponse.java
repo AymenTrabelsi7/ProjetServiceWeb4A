@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour getProduitResponse complex type.
+ * <p>Classe Java pour loginResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="getProduitResponse"&gt;
+ * &lt;complexType name="loginResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.polytech.fr}product" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,35 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getProduitResponse", propOrder = {
+@XmlType(name = "loginResponse", propOrder = {
     "_return"
 })
-public class GetProduitResponse {
+public class LoginResponse {
 
     @XmlElement(name = "return")
-    protected Product _return;
+    protected boolean _return;
 
     /**
      * Obtient la valeur de la propriété return.
      * 
-     * @return
-     *     possible object is
-     *     {@link Product }
-     *     
      */
-    public Product getReturn() {
+    public boolean isReturn() {
         return _return;
     }
 
     /**
      * Définit la valeur de la propriété return.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Product }
-     *     
      */
-    public void setReturn(Product value) {
+    public void setReturn(boolean value) {
         this._return = value;
     }
 

@@ -9,7 +9,7 @@ import javax.jws.WebService;
 import DBManagers.ProductManager;
 import EJBs.Product;
 
-@WebService(targetNamespace = "localhost:8085/")
+@WebService(targetNamespace = "http://www.polytech.fr")
 public class ProductService {
 	ProductManager access = new ProductManager();
 	

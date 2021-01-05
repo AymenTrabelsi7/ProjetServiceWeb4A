@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="desc" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "product", propOrder = {
     "categorie",
-    "desc",
+    "description",
     "id",
     "nom",
     "prix",
@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Product {
 
     protected String categorie;
-    protected String desc;
+    protected String description;
     protected int id;
     protected String nom;
     protected int prix;
@@ -76,27 +76,27 @@ public class Product {
     }
 
     /**
-     * Obtient la valeur de la propriété desc.
+     * Obtient la valeur de la propriété description.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * Définit la valeur de la propriété desc.
+     * Définit la valeur de la propriété description.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDesc(String value) {
-        this.desc = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     /**

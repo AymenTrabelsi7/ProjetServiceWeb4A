@@ -3,21 +3,20 @@ package soapinterface;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour getProduitResponse complex type.
+ * <p>Classe Java pour update complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="getProduitResponse"&gt;
+ * &lt;complexType name="update"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.polytech.fr}product" minOccurs="0"/&gt;
+ *         &lt;element name="newCli" type="{http://www.polytech.fr}client" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,36 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getProduitResponse", propOrder = {
-    "_return"
+@XmlType(name = "update", propOrder = {
+    "newCli"
 })
-public class GetProduitResponse {
+public class Update {
 
-    @XmlElement(name = "return")
-    protected Product _return;
+    protected Client newCli;
 
     /**
-     * Obtient la valeur de la propriété return.
+     * Obtient la valeur de la propriété newCli.
      * 
      * @return
      *     possible object is
-     *     {@link Product }
+     *     {@link Client }
      *     
      */
-    public Product getReturn() {
-        return _return;
+    public Client getNewCli() {
+        return newCli;
     }
 
     /**
-     * Définit la valeur de la propriété return.
+     * Définit la valeur de la propriété newCli.
      * 
      * @param value
      *     allowed object is
-     *     {@link Product }
+     *     {@link Client }
      *     
      */
-    public void setReturn(Product value) {
-        this._return = value;
+    public void setNewCli(Client value) {
+        this.newCli = value;
     }
 
 }

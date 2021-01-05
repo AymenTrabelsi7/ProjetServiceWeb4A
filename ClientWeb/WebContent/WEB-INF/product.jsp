@@ -49,7 +49,7 @@
 
 												<div class="col-md-7">
 													<div class="product-title"><h4><c:out value="${produit.nom}"/></h4></div>
-													<div class="product-desc"><h5><c:out value="${produit.desc}"/></h5></div>
+													<div class="product-desc"><h5><c:out value="${produit.description}"/></h5></div>
 													<hr>
 													<div class="product-price"><h3><c:out value="${produit.prix}"/> &euro;</h3></div>
 													<h4>

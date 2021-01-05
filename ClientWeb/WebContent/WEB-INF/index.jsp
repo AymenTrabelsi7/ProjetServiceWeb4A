@@ -35,7 +35,7 @@
 							
 								<jsp:include page="/WEB-INF/common/product_box.jsp">
 									<jsp:param name="nom" value="${product.nom}" />
-									<jsp:param name="desc" value="${product.desc}" />
+									<jsp:param name="desc" value="${product.description}" />
 									<jsp:param name="prix" value="${product.prix}" />
 									<jsp:param name="id" value="${product.id}" />
 								</jsp:include>

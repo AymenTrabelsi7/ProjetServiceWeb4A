@@ -3,6 +3,8 @@ package EJBs;
 import java.io.Serializable;
 
 import javax.ejb.Stateless;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Stateless
 @Entity
-@Table(name="produit")
+@Table(name="produits")
 @XmlRootElement
 public class Product implements Serializable {
 
@@ -20,10 +21,34 @@ public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "id")
 	private int id;
 	
-	private int prix,stock,score;
-	private String nom,desc,categorie;
+    @Basic(optional = false)
+    @Column(name = "prix")
+	private int prix;
+	
+    @Basic(optional = false)
+    @Column(name = "stock")
+	private int stock;
+
+    @Basic(optional = false)
+    @Column(name = "score")
+	private int score;
+
+    @Basic(optional = false)
+    @Column(name = "nom")
+	private String nom;
+	
+    @Basic(optional = false)
+    @Column(name = "description")
+	private String description;
+	
+    @Basic(optional = false)
+    @Column(name = "categorie")
+	private String categorie;
+	
+
 	
 
 	
@@ -36,7 +61,7 @@ public class Product implements Serializable {
 		this.stock = stock;
 		this.score = score;
 		this.nom = nom;
-		this.desc = desc;
+		this.description = desc;
 		this.categorie = categorie;
 	}
 	
@@ -96,17 +121,20 @@ public class Product implements Serializable {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String desc) {
+		this.description = desc;
 	}
 	
 	@Override
 	public String toString() {
 		return "Produit : " + "[id = " + id + "]";
 	}
+
+
+
 	
 	
 }

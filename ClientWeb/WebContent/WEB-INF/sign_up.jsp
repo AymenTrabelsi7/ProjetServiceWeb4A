@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -9,7 +10,7 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title>Login | BuyYourself</title>
+<title>Create Account | BuyYourself</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -23,15 +24,43 @@
 
 			<div class="col-xxl mx-auto">
 
-				<div class="container-fluid">
+				<div class="container">
 
-					<div class="row">
-
-					<p>Page d'Inscription</p>
-
-
-
-					</div>
+					<form action="signup" method="post">
+						
+						<div class="mb-3">
+						<label for="nom" class="form-label">Nom</label>
+						<input class="form-control me-2" type="text"
+							placeholder="Nom" aria-label="Nom" name="nom" id="nom">
+						</div><br>
+							
+						<div class="mb-3">					
+						<label class="form-label" for="prenom">Prénom</label>
+						<input class="form-control me-2" type="text"
+							placeholder="Prénom" aria-label="Prénom" name="prenom" id="prenom">
+						</div><br>
+						
+						<div class="mb-3">
+						<label class="form-label" for="email">Email</label>
+						<input class="form-control me-2" type="email"
+							placeholder="Email" aria-label="Email" name="email" id="email">
+						</div><br>
+						
+						<div class="mb-3">
+						<label class="form-label" for="username">Nom d'Utilisateur</label>
+						<input class="form-control me-2" type="text"
+							placeholder="Nom d'Utilisateur" aria-label="Nom d'Utilisateur" name="username" id="username">
+						</div><br>
+						
+						<div class="mb-3">
+						<label class="form-label" for="nom">Mot de Passe</label>
+						<input class="form-control me-2" type="text"
+							placeholder="Mot de Passe" aria-label="Nom" name="nom" id="nom">
+						</div><br>
+						
+						
+						<button class="btn btn-outline-secondary" type="submit">Inscription</button>
+					</form>
 
 
 				</div>
