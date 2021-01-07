@@ -10,10 +10,10 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title><c:out value="${produit.nom}"/> | BuyYourself</title>
+<title><c:out value="${produit.nom}" /> | BuyYourself</title>
 </head>
 <body>
-	<div class="container-xxl">
+	<div class="container-fluid">
 		<div class="row mb-4">
 			<div class="col-xxl">
 				<%@ include file="/WEB-INF/common/header.jsp"%>
@@ -30,7 +30,7 @@
 
 						<c:choose>
 
-							<c:when test="${produit.id == -1}">
+							<c:when test="${produit.id == -1 || produit == null}">
 
 								<p>Désolé, ce produit n'existe pas.</p>
 
@@ -43,39 +43,87 @@
 										<div class="item-container">
 											<div class="container-fluid">
 												<div class="col-md-10 my-4">
-													<img class="img-fluid "id="item-display"
+													<img class="img-fluid " id="item-display"
 														src="<%=request.getContextPath()%>/img/test.png" alt=""></img>
 												</div>
 
 												<div class="col-md-7">
-													<div class="product-title"><h4><c:out value="${produit.nom}"/></h4></div>
-													<div class="product-desc"><h5><c:out value="${produit.description}"/></h5></div>
+													<div class="product-title">
+														<h4>
+															<c:out value="${produit.nom}" />
+														</h4>
+													</div>
+													<div class="product-desc">
+														<h5>
+															<c:out value="${produit.description}" />
+														</h5>
+													</div>
 													<hr>
-													<div class="product-price"><h3><c:out value="${produit.prix}"/> &euro;</h3></div>
+													<div class="product-price">
+														<h3>
+															<c:out value="${produit.prix}" />
+															&euro;
+														</h3>
+													</div>
 													<h4>
-													<c:choose>
-													
-														<c:when test="${produit.stock > 5}">
-															<div class="badge bg-success">En Stock</div>
-														</c:when>
-														
-														<c:when test="${produit.stock <= 5 && produit.stock > 0}">
-															<div class="badge bg-warning">Plus que <c:out value="${produit.stock}"/> en stock !</div>
-														</c:when>
-														
-														<c:otherwise>
-															<div class="badge bg-danger">Non Disponible</div>
-														</c:otherwise>
-													
-													</c:choose>
+														<c:choose>
+
+															<c:when test="${produit.stock > 5}">
+																<div class="badge bg-success">En Stock</div>
+															</c:when>
+
+															<c:when test="${produit.stock <= 5 && produit.stock > 0}">
+																<div class="badge bg-warning">
+																	Plus que
+																	<c:out value="${produit.stock}" />
+																	en stock !
+																</div>
+															</c:when>
+
+															<c:otherwise>
+																<div class="badge bg-danger">Non Disponible</div>
+															</c:otherwise>
+
+														</c:choose>
 													</h4>
 													<hr>
+
+
 													<c:choose>
-														<c:when test="${produit.stock > 0}">												<div class="btn-group cart">
-														<button type="button" class="btn btn-success">
-															Ajouter au panier</button>
+													
+													
+														<c:when test="${produit.stock > 0}">
+														
+														<div class="row">
+														
+															<div class="col-3">
+															
+														<div class="input-group my-4">
+															<span class="input-group-btn">
+																<button type="button"
+																	class="quantity-left-minus btn btn-dark btn-number"
+																	data-type="minus" data-field=""><h3>-</h3></button>
+															</span> <input type="text" id="quantity" name="quantity"
+																class="form-control input-number" value="10"
+																min="1" max="100"> <span class="input-group-btn">
+																<button type="button"
+																	class="quantity-right-plus btn btn-dark btn-number"
+																	data-type="plus" data-field=""><h3>+</h3></button>
+															</span>
 														</div>
+															
+															
+															</div>
+														
+														</div>
+														
+														
+															<div class="btn-group cart">
+																<button type="button" class="btn btn-success">
+																	Ajouter au panier</button>
+															</div>
 														</c:when>
+
 													</c:choose>
 
 												</div>
@@ -108,5 +156,11 @@
 	</div>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/lib/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
+
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/lib/increment_button.js"></script>
 </body>
 </html>

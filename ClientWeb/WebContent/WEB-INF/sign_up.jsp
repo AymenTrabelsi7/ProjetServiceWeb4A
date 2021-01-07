@@ -25,6 +25,18 @@
 			<div class="col-xxl mx-auto">
 
 				<div class="container">
+				
+					<c:choose>
+					
+						<c:when test="${signUpSuccess == false}"><div class="badge bg-danger my-4 mx-1 py-1 px-2"><h5>Erreur : L'inscription n'a pas réussi. Veuillez rééssayer.</h5></div></c:when>										
+					
+						<c:when test="${usernameExist == true}"><div class="badge bg-danger my-4 mx-1 py-1 px-2"><h5>Erreur : Le Nom d'Utilisateur est déjà utilisé.</h5></div></c:when>										
+					
+						<c:when test="${matchError == true}"><div class="badge bg-danger my-4 mx-1 py-1 px-2"><h5>Erreur : Les champs de confirmation ne correspondent pas.</h5></div></c:when>										
+					
+						<c:when test="${unfilledError == true}"><div class="badge bg-danger my-4 mx-1 py-1 px-2"><h5>Erreur : Certains champs ne sont pas remplis.</h5></div></c:when>										
+					
+					</c:choose>
 
 					<form action="signup" method="post">
 						
@@ -47,6 +59,12 @@
 						</div><br>
 						
 						<div class="mb-3">
+						<label class="form-label" for="email">Confirmer l'Email</label>
+						<input class="form-control me-2" type="email"
+							placeholder="exemple@domaine.com" aria-label="Confirmer l'Email" name="emailConf" id="emailConf">
+						</div><br>
+						
+						<div class="mb-3">
 						<label class="form-label" for="username">Nom d'Utilisateur</label>
 						<input class="form-control me-2" type="text"
 							placeholder="Nom d'Utilisateur" aria-label="Nom d'Utilisateur" name="username" id="username">
@@ -54,8 +72,14 @@
 						
 						<div class="mb-3">
 						<label class="form-label" for="nom">Mot de Passe</label>
-						<input class="form-control me-2" type="text"
-							placeholder="Mot de Passe" aria-label="Nom" name="nom" id="nom">
+						<input class="form-control me-2" type="password"
+							placeholder="Mot de Passe" aria-label="Mot de Passe" name="mdp" id="mdp">
+						</div><br>
+						
+						<div class="mb-3">
+						<label class="form-label" for="nom">Confirmer le Mot de Passe</label>
+						<input class="form-control me-2" type="password"
+							placeholder="Confirmation du Mot de Passe" aria-label="Confirmation du Mot de Passe" name="mdpConf" id="mdpConf">
 						</div><br>
 						
 						

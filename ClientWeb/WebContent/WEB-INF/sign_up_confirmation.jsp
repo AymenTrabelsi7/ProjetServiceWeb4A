@@ -26,8 +26,12 @@
 				<div class="container-fluid">
 
 					<div class="row">
-
-					<p>Page de confirmation d'Inscription</p>
+					
+					<br>
+					<h1 class="display-2">Inscription Réussie !</h1>
+					<br>
+					
+					<p class="h4">L'inscription a été réussie, vous pouvez maintenant essayer de vous connecter sur <a href="signin">la page de connexion</a>.</p>
 
 
 

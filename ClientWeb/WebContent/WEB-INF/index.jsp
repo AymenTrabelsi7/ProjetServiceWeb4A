@@ -21,7 +21,7 @@
 
 		<div class="row">
 
-			<div class="col-xxl mx-auto">
+			<div class="col-xxl">
 
 				<div class="container-fluid">
 

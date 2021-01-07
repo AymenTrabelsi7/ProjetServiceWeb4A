@@ -26,6 +26,21 @@ public interface ClientService {
 
     /**
      * 
+     * @param usr
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "verifyUsername", targetNamespace = "http://www.polytech.fr", className = "soapinterface.VerifyUsername")
+    @ResponseWrapper(localName = "verifyUsernameResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.VerifyUsernameResponse")
+    @Action(input = "http://www.polytech.fr/ClientService/verifyUsernameRequest", output = "http://www.polytech.fr/ClientService/verifyUsernameResponse")
+    public boolean verifyUsername(
+        @WebParam(name = "usr", targetNamespace = "")
+        String usr);
+
+    /**
+     * 
      * @param client
      * @return
      *     returns boolean

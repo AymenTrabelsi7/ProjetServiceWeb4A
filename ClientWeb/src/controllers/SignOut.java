@@ -28,15 +28,16 @@ public class SignOut extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession sess = request.getSession();
+		sess.setAttribute("connected", false);
+		response.sendRedirect("index");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sess = request.getSession();
-		sess.setAttribute("connected", false);
-		response.sendRedirect("index");
+
 	}
 
 }

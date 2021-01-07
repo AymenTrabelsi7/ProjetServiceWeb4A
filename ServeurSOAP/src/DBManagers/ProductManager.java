@@ -35,17 +35,6 @@ public class ProductManager {
 		TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p"/*WHERE (id<=SELECT DISTINCT max(p.id) FROM produit p)) AND (id>=(SELECT DISTINCT max(p.id) FROM produit p)-50)*/, Product.class);
 		List<Product> result = query.getResultList();
 		return result;
-		/*List<Product> result = new ArrayList<Product>(0);
-		Product p = new Product();
-		p.setNom("PS5");
-		p.setDescription("dsqdqdsq");
-		p.setCategorie("jaja");
-		p.setId(15648);
-		p.setPrix(4899);
-		p.setScore(4);
-		p.setStock(18);
-		result.add(p);
-		return result;*/
 	}
 
 	public List<Product> getProduitSearch(List<String> tokens) {
@@ -58,7 +47,6 @@ public class ProductManager {
 			query += "p.nom LIKE :token" + i + " OR p.description LIKE :token" + i;
 			if(i != tokens.size()-1) query += " OR ";
 		}
-		System.out.println("Query : " + query);
 		queryExec = em.createQuery(query, Product.class);
 		
 		for (int i = 0; i < tokens.size(); i++) {
@@ -66,9 +54,7 @@ public class ProductManager {
 		}
 		
 		result = queryExec.getResultList();
-		for (Product product : result) {
-			System.out.println(product);
-		}
+
 		return result;
 	}
 	 

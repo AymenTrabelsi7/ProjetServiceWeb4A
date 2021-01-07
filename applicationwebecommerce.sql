@@ -2,10 +2,10 @@
 -- version 4.9.7deb1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : mar. 05 jan. 2021 à 22:45
--- Version du serveur :  8.0.22-0ubuntu0.20.10.2
--- Version de PHP : 7.4.9
+-- Host: localhost:3306
+-- Generation Time: Jan 07, 2021 at 04:53 PM
+-- Server version: 8.0.22-0ubuntu0.20.10.2
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,30 +19,41 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `applicationwebecommerce`
+-- Database: `applicationwebecommerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
 CREATE TABLE `clients` (
   `profile_picture` longblob,
   `username` varchar(255) NOT NULL,
   `cb_coord` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `hashed_mdp` varchar(255) DEFAULT NULL,
-  `nom` varchar(255) DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `hashed_mdp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `paypal_account` varchar(255) DEFAULT NULL,
-  `prenom` varchar(255) DEFAULT NULL
+  `prenom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`profile_picture`, `username`, `cb_coord`, `email`, `hashed_mdp`, `nom`, `paypal_account`, `prenom`) VALUES
+(NULL, 'Atee4Real', NULL, 'mabite@dtc.com', '75c4ec0328d2ec2e8cc1cfecda70808ab55a68645a100cd7b88b18ed9d44fd5d', 'Trabelanus', NULL, 'Trabelsi'),
+(NULL, 'KANJI', NULL, 'mezzediting@gmail.com', '75c4ec0328d2ec2e8cc1cfecda70808ab55a68645a100cd7b88b18ed9d44fd5d', 'azerty', NULL, 'Trabelsos'),
+(NULL, 'Voidd', NULL, 'onlyvoidd@protonmail.com', '75c4ec0328d2ec2e8cc1cfecda70808ab55a68645a100cd7b88b18ed9d44fd5d', 'Only', NULL, 'Voidd'),
+(NULL, 'Voidd1999', NULL, '', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '', NULL, ''),
+(NULL, 'Voidd65', NULL, 'onlyvoidd@protonmail.com', '75c4ec0328d2ec2e8cc1cfecda70808ab55a68645a100cd7b88b18ed9d44fd5d', 'Aymen', NULL, 'Trabelsos');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commandes`
+-- Table structure for table `commandes`
 --
 
 CREATE TABLE `commandes` (
@@ -57,7 +68,7 @@ CREATE TABLE `commandes` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `OPENJPA_SEQUENCE_TABLE`
+-- Table structure for table `OPENJPA_SEQUENCE_TABLE`
 --
 
 CREATE TABLE `OPENJPA_SEQUENCE_TABLE` (
@@ -68,7 +79,7 @@ CREATE TABLE `OPENJPA_SEQUENCE_TABLE` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produits`
+-- Table structure for table `produits`
 --
 
 CREATE TABLE `produits` (
@@ -82,7 +93,7 @@ CREATE TABLE `produits` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `produits`
+-- Dumping data for table `produits`
 --
 
 INSERT INTO `produits` (`id`, `categorie`, `description`, `nom`, `prix`, `score`, `stock`) VALUES
@@ -97,45 +108,45 @@ INSERT INTO `produits` (`id`, `categorie`, `description`, `nom`, `prix`, `score`
 (9, 'klj', 'dsqdsqdsq', 'dsqdsqdsq', 456, 5, 486);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `clients`
+-- Indexes for table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`username`);
 
 --
--- Index pour la table `commandes`
+-- Indexes for table `commandes`
 --
 ALTER TABLE `commandes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `OPENJPA_SEQUENCE_TABLE`
+-- Indexes for table `OPENJPA_SEQUENCE_TABLE`
 --
 ALTER TABLE `OPENJPA_SEQUENCE_TABLE`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Index pour la table `produits`
+-- Indexes for table `produits`
 --
 ALTER TABLE `produits`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `commandes`
+-- AUTO_INCREMENT for table `commandes`
 --
 ALTER TABLE `commandes`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `produits`
+-- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

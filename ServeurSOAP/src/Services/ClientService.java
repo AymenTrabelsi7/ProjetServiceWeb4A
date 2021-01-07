@@ -27,4 +27,9 @@ public class ClientService {
 		return access.updateClient(newCli);
 	}
 	
+	@WebMethod(operationName = "verifyUsername")
+	public boolean verifyUsername(@WebParam(name = "usr")String usr) {
+		return !access.clientExists(usr);
+	}
+	
 }

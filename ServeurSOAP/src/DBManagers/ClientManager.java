@@ -7,8 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-
 import EJBs.Client;
 
 @Stateless
@@ -65,6 +63,18 @@ public class ClientManager {
 			res = false;
 		}
 		return res;
+	}
+	
+	public boolean clientExists(String usr) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		if (c!=null) {
+			System.out.println("Client : " + c.getUsername());
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 }

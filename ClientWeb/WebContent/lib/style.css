@@ -127,3 +127,8 @@
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 155px;
 }
+
+
+.navbar > .collapse {
+  margin-right: -25%;
+}

@@ -31,6 +31,8 @@ public class ObjectFactory {
     private final static QName _LoginResponse_QNAME = new QName("http://www.polytech.fr", "loginResponse");
     private final static QName _Update_QNAME = new QName("http://www.polytech.fr", "update");
     private final static QName _UpdateResponse_QNAME = new QName("http://www.polytech.fr", "updateResponse");
+    private final static QName _VerifyUsername_QNAME = new QName("http://www.polytech.fr", "verifyUsername");
+    private final static QName _VerifyUsernameResponse_QNAME = new QName("http://www.polytech.fr", "verifyUsernameResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soapinterface
@@ -93,6 +95,22 @@ public class ObjectFactory {
      */
     public UpdateResponse createUpdateResponse() {
         return new UpdateResponse();
+    }
+
+    /**
+     * Create an instance of {@link VerifyUsername }
+     * 
+     */
+    public VerifyUsername createVerifyUsername() {
+        return new VerifyUsername();
+    }
+
+    /**
+     * Create an instance of {@link VerifyUsernameResponse }
+     * 
+     */
+    public VerifyUsernameResponse createVerifyUsernameResponse() {
+        return new VerifyUsernameResponse();
     }
 
     /**
@@ -184,6 +202,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.fr", name = "updateResponse")
     public JAXBElement<UpdateResponse> createUpdateResponse(UpdateResponse value) {
         return new JAXBElement<UpdateResponse>(_UpdateResponse_QNAME, UpdateResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link VerifyUsername }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link VerifyUsername }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "verifyUsername")
+    public JAXBElement<VerifyUsername> createVerifyUsername(VerifyUsername value) {
+        return new JAXBElement<VerifyUsername>(_VerifyUsername_QNAME, VerifyUsername.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link VerifyUsernameResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link VerifyUsernameResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "verifyUsernameResponse")
+    public JAXBElement<VerifyUsernameResponse> createVerifyUsernameResponse(VerifyUsernameResponse value) {
+        return new JAXBElement<VerifyUsernameResponse>(_VerifyUsernameResponse_QNAME, VerifyUsernameResponse.class, null, value);
     }
 
 }
