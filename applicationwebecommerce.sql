@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 07, 2021 at 04:53 PM
+-- Generation Time: Jan 07, 2021 at 05:11 PM
 -- Server version: 8.0.22-0ubuntu0.20.10.2
 -- PHP Version: 7.4.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `applicationwebecommerce`
 --
+CREATE DATABASE IF NOT EXISTS `applicationwebecommerce` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `applicationwebecommerce`;
 
 -- --------------------------------------------------------
 
