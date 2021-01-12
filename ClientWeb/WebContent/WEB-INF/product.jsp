@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title><c:out value="${produit.nom}" /> | BuyYourself</title>
+<title><c:if test="${produit.id!=-1 || produit == null}"><c:out value="${produit.nom}" /> | </c:if>BuyYourself</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -39,12 +39,23 @@
 							<c:otherwise>
 
 								<div class="container-fluid">
+								
+									
+								
+								
 									<div class="content-wrapper">
+									
+										<div class="item-container">
+											<c:if test="${addedToCart == true}">
+												<div class="badge bg-success my-4 mx-1 py-1 px-2"><h5>Produit ajouté au panier !</h5></div>
+											</c:if>	
+										</div>
+									
 										<div class="item-container">
 											<div class="container-fluid">
 												<div class="col-md-10 my-4">
 													<img class="img-fluid " id="item-display"
-														src="<%=request.getContextPath()%>/img/test.png" alt=""></img>
+														src="<%=request.getContextPath()%>/img/${produit.img}" alt=""></img>
 												</div>
 
 												<div class="col-md-7">
@@ -94,34 +105,73 @@
 													
 														<c:when test="${produit.stock > 0}">
 														
+														<form action="product" method=post>
 														<div class="row">
 														
-															<div class="col-3">
+															<div class="col-sm">
+
+															<div class="input-group">
 															
-														<div class="input-group my-4">
-															<span class="input-group-btn">
-																<button type="button"
-																	class="quantity-left-minus btn btn-dark btn-number"
-																	data-type="minus" data-field=""><h3>-</h3></button>
-															</span> <input type="text" id="quantity" name="quantity"
-																class="form-control input-number" value="10"
-																min="1" max="100"> <span class="input-group-btn">
-																<button type="button"
-																	class="quantity-right-plus btn btn-dark btn-number"
-																	data-type="plus" data-field=""><h3>+</h3></button>
-															</span>
-														</div>
-															
-															
+																<div class="row row-cols-auto">
+																
+																	<div class="col">
+																	
+																		<span class="input-group-btn">
+																			<button type="button"
+																				class="quantity-left-minus btn btn-dark btn-number btn-xs"
+																				data-type="minus" data-field="">-</button>
+																		</span> 
+																	</div>
+																	
+																	<div class="col-sm-2">
+																		<input type="text" id="quantite" name="quantite"
+																		class="form-control input-number text-center" value="1"
+																		min="1" max="100"> 
+																	
+																	</div>
+																	
+																	<div class="col">
+																		<span class="input-group-btn">
+																		<button type="button"
+																			class="quantity-right-plus btn btn-dark btn-number btn-xs"
+																			data-type="plus" data-field="">+</button>
+																		</span>
+																	
+																	</div>
+																	
+																	<div class="col">
+																	
+																		<div class="btn-group cart">
+																			<button type="submit" class="btn btn-success">
+																				Ajouter au panier</button>
+																		</div>
+																	
+																	</div>
+																		
+																
+																</div>
+																
 															</div>
+													
+
+															</div>
+															
+															
+															
+																
+															
+															
+
+
+															
 														
 														</div>
 														
+														<input type="hidden" id="productId" name="productId" value="${produit.id}">
+														</form>
+															
 														
-															<div class="btn-group cart">
-																<button type="button" class="btn btn-success">
-																	Ajouter au panier</button>
-															</div>
+															
 														</c:when>
 
 													</c:choose>

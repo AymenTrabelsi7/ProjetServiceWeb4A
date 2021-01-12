@@ -84,6 +84,7 @@
 						<wsdlUrls>
 							<wsdlUrl>http://localhost:9000/product?wsdl</wsdlUrl>
 							<wsdlUrl>http://localhost:9000/client?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:9000/categories?wsdl</wsdlUrl>
 						</wsdlUrls>
 						<keep>true</keep>
 						<packageName>soapinterface</packageName>

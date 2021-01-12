@@ -53,13 +53,23 @@
 
 						<c:choose>
 							<c:when test="${connected}">
-								<c:set var = "displaySize" scope = "session" value = "${3}"/>
 								
-								
-								<c:if test="${userBasket.size() < displaySize}"><c:set var = "displaySize" scope = "session" value = "${userBasket.size()-1}"/></c:if>
+								<c:choose>
+									<c:when test="${userBasket.size()==0}">
+									
+										<div class="dropdown-item">Votre panier est vide.</div>
 									
 									
-										<c:forEach items="${userBasket}" var="basketProduct" begin="0" end="${displaySize}">
+									</c:when>
+									
+									<c:otherwise>
+									
+									
+									<c:if test="${userBasket.size()>=3}"><div class="container" style="height:300px;overflow-y: scroll;"></c:if>
+									<c:if test="${userBasket.size()<3}"><div class="container"></c:if>
+								
+								
+										<c:forEach items="${userBasket}" var="basketProduct">
 								
 										<div class="dropdown-item">
 
@@ -69,7 +79,7 @@
 													
 														<a href="product?id=${basketProduct.id}"><img alt=""
 															class="img-fluid img-thumbnail"
-															src="<%=request.getContextPath()%>/img/test.png"></a>
+															src="<%=request.getContextPath()%>/img/${basketProduct.img}"></a>
 													
 												</div>
 
@@ -84,26 +94,22 @@
 													Qté : <c:out value="${basketProduct.quantite}" />
 													<br>
 
-													<div class="text-danger">Sous-Total : <c:out value="${basketProduct.total}" />&euro;</div>
+													<div class="text-danger">Sous-Total : <c:out value="${basketProduct.sousTotal}" />&euro;</div>
 
 												</div>
 											</div>
 										</div>
 									
-
+								
 									<div class="dropdown-divider"></div>
 
 								</c:forEach>
-								
-								<c:if test="${userBasket.size() > displaySize}">
-									<div class="dropdown-item text-center">... Et encore <c:out value="${userBasket.size()-displaySize}" /> articles</div>
-									
-									<div class="dropdown-divider"></div>
-								</c:if>
+								</div>
 								
 								
 								
-								<div class="dropdown-item text-danger text-end">Total : <c:out value="${basketTotal}" />&euro;</div>
+								
+								<div class="dropdown-item text-danger text-end"><h3>Total : <c:out value="${basketTotal}" />&euro;</h3></div>
 								
 								<div class="dropdown-divider"></div>
 								
@@ -111,7 +117,14 @@
 								
 								<div class="dropdown-divider"></div>
 								
-								<a class="dropdown-item text-center" href="order"><button type="button" class="btn btn-success">Commander</button></a>
+								<div class="dropdown-item text-center"><a href="order"><button type="button" class="btn btn-success">Commander</button></a></div>
+									
+									
+									</c:otherwise>
+								</c:choose>
+								
+								
+								
 								
 								
 								

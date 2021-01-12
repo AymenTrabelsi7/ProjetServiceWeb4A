@@ -30,6 +30,9 @@ public class SignOut extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession sess = request.getSession();
 		sess.setAttribute("connected", false);
+		sess.removeAttribute("userBasket");
+		sess.removeAttribute("basketTotal");
+		sess.removeAttribute("username");
 		response.sendRedirect("index");
 	}
 

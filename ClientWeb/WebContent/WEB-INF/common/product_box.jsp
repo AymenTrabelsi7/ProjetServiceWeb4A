@@ -1,5 +1,5 @@
 <div class="card my-4 mx-4" style="width: 18rem;">
-	<a href="product?id=${param.id}"><img src="<%=request.getContextPath()%>/img/test.png"
+	<a href="product?id=${param.id}"><img src="<%=request.getContextPath()%>/img/${param.img}"
 		class="card-img-top" alt="Test"></a>
 	<div class="card-body">
 		<h5 class="card-title"><a href="product?id=${param.id}">${param.nom}</a></h5>

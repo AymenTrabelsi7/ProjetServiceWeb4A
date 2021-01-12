@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="img" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="score" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
@@ -36,6 +37,7 @@ import javax.xml.bind.annotation.XmlType;
     "categorie",
     "description",
     "id",
+    "img",
     "nom",
     "prix",
     "score",
@@ -46,6 +48,7 @@ public class Product {
     protected String categorie;
     protected String description;
     protected int id;
+    protected String img;
     protected String nom;
     protected int prix;
     protected int score;
@@ -113,6 +116,30 @@ public class Product {
      */
     public void setId(int value) {
         this.id = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété img.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getImg() {
+        return img;
+    }
+
+    /**
+     * Définit la valeur de la propriété img.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setImg(String value) {
+        this.img = value;
     }
 
     /**

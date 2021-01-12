@@ -126,7 +126,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>Account</servlet-name>
-		<url-pattern>/account</url-pattern>
+		<url-pattern>/myaccount</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -139,6 +139,49 @@
 	<servlet-mapping>
 		<servlet-name>SignUpConf</servlet-name>
 		<url-pattern>/signupconfirmation</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>MyOrders</servlet-name>
+		<servlet-class>controllers.MyOrders</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MyOrders</servlet-name>
+		<url-pattern>/myorders</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Shipping</servlet-name>
+		<servlet-class>controllers.Shipping</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Shipping</servlet-name>
+		<url-pattern>/order/shipping</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Payment</servlet-name>
+		<servlet-class>controllers.Payment</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Payment</servlet-name>
+		<url-pattern>/order/payment</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Confirmation</servlet-name>
+		<servlet-class>controllers.Confirmation</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Confirmation</servlet-name>
+		<url-pattern>/order/confirmation</url-pattern>
 	</servlet-mapping>
 
 

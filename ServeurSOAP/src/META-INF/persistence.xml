@@ -9,6 +9,7 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<class>EJBs.Client</class>
 		<class>EJBs.Product</class>
+		<class>EJBs.Categories</class>
 		<properties>
 		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/applicationwebecommerce"/>
          	<property name="javax.persistence.jdbc.user" value="admin"/>

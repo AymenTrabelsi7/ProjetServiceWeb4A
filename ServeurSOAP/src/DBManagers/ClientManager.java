@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import EJBs.Client;
+import EJBs.Product;
 
 @Stateless
 @LocalBean
@@ -18,7 +19,6 @@ public class ClientManager {
 	public ClientManager() {}
 	
 	public boolean addClient(Client cli) {
-		em.clear();
 		boolean res;
 		
 		em.getTransaction().begin();
@@ -73,6 +73,68 @@ public class ClientManager {
 			return true;
 		}
 		else {
+			return false;
+		}
+	}
+
+	public Client getClient(String usr) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		return c;
+	}
+
+	public boolean updateNom(String usr, String nom) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		em.getTransaction().begin();
+		try {
+			c.setNom(nom);
+			em.getTransaction( ).commit( );
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean updatePrenom(String usr, String prenom) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		em.getTransaction().begin();
+		try {
+			c.setPrenom(prenom);
+			em.getTransaction( ).commit( );
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean updateEmail(String usr, String email) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		em.getTransaction().begin();
+		try {
+			c.setEmail(email);
+			em.getTransaction( ).commit( );
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean updateMdp(String usr, String mdp) {
+		em.clear();
+		Client c = em.find(Client.class,usr);
+		em.getTransaction().begin();
+		try {
+			c.setHashed_mdp(mdp);
+			em.getTransaction( ).commit( );
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

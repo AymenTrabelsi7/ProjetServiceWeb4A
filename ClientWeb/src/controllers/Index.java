@@ -39,25 +39,6 @@ public class Index extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
-		ArrayList<BasketProduct> basket = new ArrayList<BasketProduct>(0);
-		BasketProduct p = new BasketProduct();
-		p.setNom("PS44");
-		p.setId(18);
-		p.setPrix(400);
-		p.setQuantite(19);
-		p.setTotal(p.getPrix()*p.getQuantite());
-		basket.add(p);
-		
-		BasketProduct p1 = new BasketProduct();
-		p1.setNom("PS44");
-		p1.setId(14);
-		p1.setPrix(400);
-		p1.setQuantite(19);
-		p1.setTotal(p1.getPrix()*p1.getQuantite());
-		basket.add(p1);
-		sess.setAttribute("userBasket", basket);
-		sess.setAttribute("basketTotal", p.getTotal()+p1.getTotal());
-		
 		boolean connected;
 		if(sess.getAttribute("connected") != null) 	connected = (boolean) sess.getAttribute("connected");
 		else {

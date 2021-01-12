@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import soapinterface.ClientService;
 import soapinterface.ClientServiceService;
+import util.password;
+
 import java.security.MessageDigest;  
 import java.security.NoSuchAlgorithmException;
 
@@ -34,33 +36,7 @@ public class SignUp extends HttpServlet {
     }
     
     
-    public static byte[] getSHA(String input) throws NoSuchAlgorithmException 
-    {  
-        // Static getInstance method is called with hashing SHA  
-        MessageDigest md = MessageDigest.getInstance("SHA-256");  
-  
-        // digest() method called  
-        // to calculate message digest of an input  
-        // and return array of byte 
-        return md.digest(input.getBytes(StandardCharsets.UTF_8));  
-    } 
-    
-    public static String toHexString(byte[] hash) 
-    { 
-        // Convert byte array into signum representation  
-        BigInteger number = new BigInteger(1, hash);  
-  
-        // Convert message digest into hex value  
-        StringBuilder hexString = new StringBuilder(number.toString(16));  
-  
-        // Pad with leading zeros 
-        while (hexString.length() < 32)  
-        {  
-            hexString.insert(0, '0');  
-        }  
-  
-        return hexString.toString();  
-    } 
+     
     
     
 
@@ -71,11 +47,10 @@ public class SignUp extends HttpServlet {
 		// TODO Auto-generated method stub
 		sess = request.getSession();
 		this.getServletContext().getRequestDispatcher("/WEB-INF/sign_up.jsp").forward(request, response);
-		sess.setAttribute("signUpSuccess", null);
-		sess.setAttribute("usernameExist", null);
-		sess.setAttribute("matchError", null);
-		sess.setAttribute("unfilledError", null);
-		
+		sess.removeAttribute("signUpSuccess");
+		sess.removeAttribute("usernameExist");
+		sess.removeAttribute("matchError");
+		sess.removeAttribute("unfilledError");
 	}
 
 	/**
@@ -103,7 +78,7 @@ public class SignUp extends HttpServlet {
 					newCli.setEmail(email);
 					
 					try {
-						String hashedMdp = toHexString(getSHA(clearMdp));
+						String hashedMdp = password.toHexString(password.getSHA(clearMdp));
 						newCli.setHashedMdp(hashedMdp);
 						boolean res = stub.createAccount(newCli);
 						sess.setAttribute("signUpSuccess", res);

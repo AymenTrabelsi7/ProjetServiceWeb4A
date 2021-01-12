@@ -1,6 +1,7 @@
 package EJBs;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import javax.ejb.Stateless;
 import javax.persistence.Basic;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -47,6 +49,10 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "categorie")
 	private String categorie;
+    
+    @Column(name = "img")
+   	private String img;
+    
 	
 
 	
@@ -132,7 +138,16 @@ public class Product implements Serializable {
 	public String toString() {
 		return "Produit : " + "[id = " + id + "]";
 	}
-
+	
+	public String getImg() {
+		return img;
+	}
+	
+	public void setImg(String path) {
+		this.img = path;
+	}
+	
+	
 
 
 	

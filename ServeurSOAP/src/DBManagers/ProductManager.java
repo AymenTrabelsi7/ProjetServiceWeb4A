@@ -21,9 +21,6 @@ public class ProductManager {
 	public ProductManager(){}
 	
 	
-
-	
-	
 	public Product getProduit(int id) {
 		em.clear();
 		Product p = em.find(Product.class,id);
@@ -55,6 +52,20 @@ public class ProductManager {
 		
 		result = queryExec.getResultList();
 
+		return result;
+	}
+
+
+
+
+
+	public List<Product> getProduitsCategorie(String cat) {
+		System.out.println("cat="+cat);
+		em.clear();
+		TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p WHERE p.categorie = :cat", Product.class);
+		query.setParameter("cat",cat);
+		List<Product> result = query.getResultList();
+		System.out.println("result.size()="+result.size());
 		return result;
 	}
 	 

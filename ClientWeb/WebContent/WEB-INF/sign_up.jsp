@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title>Create Account | BuyYourself</title>
+<title>Inscription | BuyYourself</title>
 </head>
 <body>
 	<div class="container-fluid">

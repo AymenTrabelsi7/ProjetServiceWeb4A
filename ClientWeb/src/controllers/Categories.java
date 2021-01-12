@@ -1,11 +1,18 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import soapinterface.CategoriesService;
+import soapinterface.CategoriesServiceService;
+import soapinterface.ProductService;
+import soapinterface.ProductServiceService;
 
 /**
  * Servlet implementation class Categories
@@ -13,7 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/categories")
 public class Categories extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	List<soapinterface.Product> cat_products;
+	CategoriesService categories_stub = new CategoriesServiceService().getCategoriesServicePort();
+	ProductService product_stub = new ProductServiceService().getProductServicePort();
+    
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,21 +39,20 @@ public class Categories extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String cat = request.getParameter("catgeorie");
-		if(!cat.equals("")) {
-			String nom_produit = "Playstation 8";
-			request.setAttribute("nom_produit", nom_produit);
+		String cat = request.getParameter("cat");
+		if(cat != null && categories_stub.isCategorie(cat)) {
+			cat_products = product_stub.getProduitsCategorie(cat);
+			System.out.println("cat_products.size()="+cat_products.size());
+			request.setAttribute("catProducts", cat_products);
+			request.setAttribute("selectedCat", cat);
 		}
-		request.setAttribute("cat", cat);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/basket.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		else {
+			request.removeAttribute("catProducts");
+			request.removeAttribute("selectedCat");
+			request.setAttribute("categories", categories_stub.getCategories());
+		}
+		request.setCharacterEncoding("UTF-8");
+		this.getServletContext().getRequestDispatcher("/WEB-INF/categories.jsp").forward(request, response);
 	}
 
 }

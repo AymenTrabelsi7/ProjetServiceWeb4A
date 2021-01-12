@@ -32,4 +32,30 @@ public class ClientService {
 		return !access.clientExists(usr);
 	}
 	
+	@WebMethod(operationName = "getAccount")
+	public Client getAccount(@WebParam(name = "usr")String usr) {
+		return access.getClient(usr);
+	}
+	
+	@WebMethod(operationName = "modifierNom")
+	public boolean modifierNom(@WebParam(name = "usr")String usr, @WebParam(name = "nom")String nom) {
+		return access.updateNom(usr,nom);
+	}
+	
+	@WebMethod(operationName = "modifierPrenom")
+	public boolean modifierPrenom(@WebParam(name = "usr")String usr, @WebParam(name = "prenom")String prenom) {
+		return access.updatePrenom(usr,prenom);
+	}
+	
+	
+	@WebMethod(operationName = "modifierEmail")
+	public boolean modifierEmail(@WebParam(name = "usr")String usr, @WebParam(name = "email")String email) {
+		return access.updateEmail(usr,email);
+	}
+	
+	@WebMethod(operationName = "modifierMdp")
+	public boolean modifierMdp(@WebParam(name = "usr")String usr, @WebParam(name = "mdp")String mdp) {
+		return access.updateMdp(usr,mdp);
+	}
+	
 }

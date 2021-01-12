@@ -132,3 +132,8 @@
 .navbar > .collapse {
   margin-right: -25%;
 }
+
+.boutton-qte {
+	width : 20px;
+	height: 20px;
+}

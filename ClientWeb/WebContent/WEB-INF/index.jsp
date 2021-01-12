@@ -9,7 +9,7 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title>BuyYourself | Everything a human needs.</title>
+<title>BuyYourself | Achetez-vous.</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -38,6 +38,7 @@
 									<jsp:param name="desc" value="${product.description}" />
 									<jsp:param name="prix" value="${product.prix}" />
 									<jsp:param name="id" value="${product.id}" />
+									<jsp:param name="img" value="${product.img}" />
 								</jsp:include>
 								
 							</div>

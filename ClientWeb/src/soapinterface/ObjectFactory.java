@@ -24,15 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Client_QNAME = new QName("http://www.polytech.fr", "client");
-    private final static QName _CreateAccount_QNAME = new QName("http://www.polytech.fr", "createAccount");
-    private final static QName _CreateAccountResponse_QNAME = new QName("http://www.polytech.fr", "createAccountResponse");
-    private final static QName _Login_QNAME = new QName("http://www.polytech.fr", "login");
-    private final static QName _LoginResponse_QNAME = new QName("http://www.polytech.fr", "loginResponse");
-    private final static QName _Update_QNAME = new QName("http://www.polytech.fr", "update");
-    private final static QName _UpdateResponse_QNAME = new QName("http://www.polytech.fr", "updateResponse");
-    private final static QName _VerifyUsername_QNAME = new QName("http://www.polytech.fr", "verifyUsername");
-    private final static QName _VerifyUsernameResponse_QNAME = new QName("http://www.polytech.fr", "verifyUsernameResponse");
+    private final static QName _Categories_QNAME = new QName("http://www.polytech.fr", "categories");
+    private final static QName _GetCategories_QNAME = new QName("http://www.polytech.fr", "getCategories");
+    private final static QName _GetCategoriesResponse_QNAME = new QName("http://www.polytech.fr", "getCategoriesResponse");
+    private final static QName _IsCategorie_QNAME = new QName("http://www.polytech.fr", "isCategorie");
+    private final static QName _IsCategorieResponse_QNAME = new QName("http://www.polytech.fr", "isCategorieResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soapinterface
@@ -42,192 +38,108 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Client }
+     * Create an instance of {@link Categories }
      * 
      */
-    public Client createClient() {
-        return new Client();
+    public Categories createCategories() {
+        return new Categories();
     }
 
     /**
-     * Create an instance of {@link CreateAccount }
+     * Create an instance of {@link GetCategories }
      * 
      */
-    public CreateAccount createCreateAccount() {
-        return new CreateAccount();
+    public GetCategories createGetCategories() {
+        return new GetCategories();
     }
 
     /**
-     * Create an instance of {@link CreateAccountResponse }
+     * Create an instance of {@link GetCategoriesResponse }
      * 
      */
-    public CreateAccountResponse createCreateAccountResponse() {
-        return new CreateAccountResponse();
+    public GetCategoriesResponse createGetCategoriesResponse() {
+        return new GetCategoriesResponse();
     }
 
     /**
-     * Create an instance of {@link Login }
+     * Create an instance of {@link IsCategorie }
      * 
      */
-    public Login createLogin() {
-        return new Login();
+    public IsCategorie createIsCategorie() {
+        return new IsCategorie();
     }
 
     /**
-     * Create an instance of {@link LoginResponse }
+     * Create an instance of {@link IsCategorieResponse }
      * 
      */
-    public LoginResponse createLoginResponse() {
-        return new LoginResponse();
+    public IsCategorieResponse createIsCategorieResponse() {
+        return new IsCategorieResponse();
     }
 
     /**
-     * Create an instance of {@link Update }
-     * 
-     */
-    public Update createUpdate() {
-        return new Update();
-    }
-
-    /**
-     * Create an instance of {@link UpdateResponse }
-     * 
-     */
-    public UpdateResponse createUpdateResponse() {
-        return new UpdateResponse();
-    }
-
-    /**
-     * Create an instance of {@link VerifyUsername }
-     * 
-     */
-    public VerifyUsername createVerifyUsername() {
-        return new VerifyUsername();
-    }
-
-    /**
-     * Create an instance of {@link VerifyUsernameResponse }
-     * 
-     */
-    public VerifyUsernameResponse createVerifyUsernameResponse() {
-        return new VerifyUsernameResponse();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Client }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Categories }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Client }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link Categories }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "client")
-    public JAXBElement<Client> createClient(Client value) {
-        return new JAXBElement<Client>(_Client_QNAME, Client.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "categories")
+    public JAXBElement<Categories> createCategories(Categories value) {
+        return new JAXBElement<Categories>(_Categories_QNAME, Categories.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAccount }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategories }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CreateAccount }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetCategories }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "createAccount")
-    public JAXBElement<CreateAccount> createCreateAccount(CreateAccount value) {
-        return new JAXBElement<CreateAccount>(_CreateAccount_QNAME, CreateAccount.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getCategories")
+    public JAXBElement<GetCategories> createGetCategories(GetCategories value) {
+        return new JAXBElement<GetCategories>(_GetCategories_QNAME, GetCategories.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAccountResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategoriesResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CreateAccountResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetCategoriesResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "createAccountResponse")
-    public JAXBElement<CreateAccountResponse> createCreateAccountResponse(CreateAccountResponse value) {
-        return new JAXBElement<CreateAccountResponse>(_CreateAccountResponse_QNAME, CreateAccountResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getCategoriesResponse")
+    public JAXBElement<GetCategoriesResponse> createGetCategoriesResponse(GetCategoriesResponse value) {
+        return new JAXBElement<GetCategoriesResponse>(_GetCategoriesResponse_QNAME, GetCategoriesResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Login }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IsCategorie }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Login }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link IsCategorie }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "login")
-    public JAXBElement<Login> createLogin(Login value) {
-        return new JAXBElement<Login>(_Login_QNAME, Login.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "isCategorie")
+    public JAXBElement<IsCategorie> createIsCategorie(IsCategorie value) {
+        return new JAXBElement<IsCategorie>(_IsCategorie_QNAME, IsCategorie.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IsCategorieResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link IsCategorieResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "loginResponse")
-    public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
-        return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Update }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Update }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "update")
-    public JAXBElement<Update> createUpdate(Update value) {
-        return new JAXBElement<Update>(_Update_QNAME, Update.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "updateResponse")
-    public JAXBElement<UpdateResponse> createUpdateResponse(UpdateResponse value) {
-        return new JAXBElement<UpdateResponse>(_UpdateResponse_QNAME, UpdateResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerifyUsername }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerifyUsername }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "verifyUsername")
-    public JAXBElement<VerifyUsername> createVerifyUsername(VerifyUsername value) {
-        return new JAXBElement<VerifyUsername>(_VerifyUsername_QNAME, VerifyUsername.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerifyUsernameResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerifyUsernameResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "verifyUsernameResponse")
-    public JAXBElement<VerifyUsernameResponse> createVerifyUsernameResponse(VerifyUsernameResponse value) {
-        return new JAXBElement<VerifyUsernameResponse>(_VerifyUsernameResponse_QNAME, VerifyUsernameResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "isCategorieResponse")
+    public JAXBElement<IsCategorieResponse> createIsCategorieResponse(IsCategorieResponse value) {
+        return new JAXBElement<IsCategorieResponse>(_IsCategorieResponse_QNAME, IsCategorieResponse.class, null, value);
     }
 
 }

@@ -9,7 +9,7 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 
 
-<title>Login | BuyYourself</title>
+<title>Connexion | BuyYourself</title>
 </head>
 <body>
 	<div class="container-fluid">

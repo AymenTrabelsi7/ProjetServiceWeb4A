@@ -2,9 +2,9 @@ package basket;
 
 public class BasketProduct {
 		
-		private String nom,img;
+		private String nom,img,description;
 		
-		private int id,quantite,prix,total;
+		private int id,quantite,prix,sousTotal;
 		
 		public BasketProduct() {}
 
@@ -40,20 +40,28 @@ public class BasketProduct {
 			this.prix = prix;
 		}
 
-		public int getTotal() {
-			return total;
-		}
-
-		public void setTotal(int total) {
-			this.total = total;
-		}
-
 		public int getId() {
 			return id;
 		}
 
 		public void setId(int id) {
 			this.id = id;
+		}
+
+		public int getSousTotal() {
+			return sousTotal;
+		}
+
+		public void setSousTotal(int sousTotal) {
+			this.sousTotal = sousTotal;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 		
 		

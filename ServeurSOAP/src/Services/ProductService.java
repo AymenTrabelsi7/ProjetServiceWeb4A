@@ -28,4 +28,9 @@ public class ProductService {
 		return access.getProduitSearch(tokens);
 	}
 	
+	@WebMethod(operationName = "getProduitsCategorie")
+	public List<Product> getProduitsCategorie(@WebParam(name = "cat")String cat) {
+		return access.getProduitsCategorie(cat);
+	}
+	
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import basket.BasketProduct;
 import soapinterface.ClientService;
 import soapinterface.ClientServiceService;
+import util.password;
 
 /**
  * Servlet implementation class SignIn
@@ -50,14 +51,20 @@ public class SignIn extends HttpServlet {
 		System.out.println("usr : "+usr);
 		System.out.println("clear mdp : " + request.getParameter("mdp"));
 		try {
-			String mdp = SignUp.toHexString(SignUp.getSHA(request.getParameter("mdp")));
+			String mdp = password.toHexString(password.getSHA(request.getParameter("mdp")));
 			System.out.println("Hashed Mdp : " + mdp);
 			if(stub.login(usr, mdp)) {
 				System.out.println("Login success");
 				sess.setAttribute("connected", true);
 				sess.setAttribute("username", usr);
-				sess.setAttribute("userBasket", new ArrayList<BasketProduct>(0));
-				response.sendRedirect("index");
+				basket.Basket basket = new basket.Basket();
+				sess.setAttribute("userBasket", basket.getProducts());
+				sess.setAttribute("basketTotal", 0);
+				if(sess.getAttribute("redirectSource") != null) {
+					response.sendRedirect((String) sess.getAttribute("redirectSource"));
+					sess.setAttribute("redirectSource", null);
+				}
+				else response.sendRedirect("index");
 			}
 			else {
 				System.out.println("Login failed");
