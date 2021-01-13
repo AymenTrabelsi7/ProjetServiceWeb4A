@@ -98,7 +98,7 @@
 														<jsp:param name="desc" value="${product.description}" />
 														<jsp:param name="prix" value="${product.prix}" />
 														<jsp:param name="id" value="${product.id}" />
-														<jsp:param name="img" value="${product.base64Image}" />
+														<jsp:param name="img" value="${product.img}" />
 													</jsp:include>
 													
 												</div>

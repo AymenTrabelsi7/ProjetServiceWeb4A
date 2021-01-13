@@ -54,11 +54,11 @@
 										<div class="item-container">
 											<div class="container-fluid">
 												<div class="col-md-10 my-4">
-													<img class="img-fluid " id="item-display"
+													<img class="img-product mx-auto" id="item-display"
 														src="<%=request.getContextPath()%>/img/${produit.img}" alt=""></img>
 												</div>
 
-												<div class="col-md-7">
+												<div class="col-md-10">
 													<div class="product-title">
 														<h4>
 															<c:out value="${produit.nom}" />

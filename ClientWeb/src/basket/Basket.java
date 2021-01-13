@@ -28,6 +28,7 @@ public class Basket {
 		p.setQuantite(qte);
 		p.setSousTotal(qte*produit.getPrix());
 		p.setImg(produit.getImg());
+		System.out.println(p);
 		this.getProducts().add(p);
 		this.setTotal(this.getTotal()+p.getSousTotal());
 	}

@@ -133,7 +133,53 @@
   margin-right: -25%;
 }
 
-.boutton-qte {
-	width : 20px;
-	height: 20px;
+
+
+.description {
+	overflow : hidden;
+	max-height : 9rem;
+	-webkit-box-orient : vertical;
+	display : block;
+	display : -webkit-box;
+	overflow : hidden !important;
+	text-overflow : ellipsis;
+	-webkit-line-clamp : 4;
+}
+
+.basketDescription {
+	overflow : hidden;
+	max-height : 15rem;
+	-webkit-box-orient : vertical;
+	display : block;
+	display : -webkit-box;
+	overflow : hidden !important;
+	text-overflow : ellipsis;
+	-webkit-line-clamp : 9;
+}
+
+.img-box {
+	max-width: 286px;
+	max-height: 200px;
+	height : auto;
+	width:auto;
+	display : block;
+	text-align: center;
+}
+
+.img-product {
+	max-width: 900px;
+	max-height: 600px;
+	height : auto;
+	width:auto;
+	display : block;
+	text-align: center;
+}
+
+.img-basket {
+	max-width: 286px;
+	max-height: 200px;
+	height : auto;
+	width:auto;
+	display : block;
+	text-align: center;
 }

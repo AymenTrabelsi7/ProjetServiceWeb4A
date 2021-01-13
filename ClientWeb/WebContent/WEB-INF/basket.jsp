@@ -43,7 +43,7 @@
 									<div class="col-xl-5">
 
 										<a href="product?id=${basketProduct.id}"><img alt=""
-											class="img-fluid img-thumbnail"
+											class="img-thumbnail img-box mx-auto"
 											src="<%=request.getContextPath()%>/img/${basketProduct.img}"></a>
 
 									</div>
@@ -52,7 +52,7 @@
 
 
 										<div class="row mb-3">
-											<div class="col-xl-4">
+											<div class="col-xl-7 basketDescription">
 												<c:out value="${basketProduct.description}" />
 											</div>
 

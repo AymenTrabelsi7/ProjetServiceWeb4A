@@ -78,7 +78,7 @@
 												<div class="col-xl-5">
 													
 														<a href="product?id=${basketProduct.id}"><img alt=""
-															class="img-fluid img-thumbnail"
+															class="img-thumbnail img-basket mx-auto"
 															src="<%=request.getContextPath()%>/img/${basketProduct.img}"></a>
 													
 												</div>

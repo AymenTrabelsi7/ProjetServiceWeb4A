@@ -66,6 +66,7 @@ public class Product extends HttpServlet {
 				basket.Basket basket = new basket.Basket();
 				basket.setTotal(total);
 				basket.setProducts(userBasket);
+				System.out.println(stub.getProduit(id));
 				basket.ajouterProduit(stub.getProduit(id),qte);
 				sess.setAttribute("userBasket", basket.getProducts());
 				sess.setAttribute("basketTotal", basket.getTotal());
