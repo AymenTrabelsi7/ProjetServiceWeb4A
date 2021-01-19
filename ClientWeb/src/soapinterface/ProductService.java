@@ -39,6 +39,21 @@ public interface ProductService {
 
     /**
      * 
+     * @param cat
+     * @return
+     *     returns java.util.List<soapinterface.Product>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getProduitsCategorie", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsCategorie")
+    @ResponseWrapper(localName = "getProduitsCategorieResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsCategorieResponse")
+    @Action(input = "http://www.polytech.fr/ProductService/getProduitsCategorieRequest", output = "http://www.polytech.fr/ProductService/getProduitsCategorieResponse")
+    public List<Product> getProduitsCategorie(
+        @WebParam(name = "cat", targetNamespace = "")
+        String cat);
+
+    /**
+     * 
      * @param id
      * @return
      *     returns soapinterface.Product
@@ -66,20 +81,5 @@ public interface ProductService {
     public List<Product> getProduitsSearch(
         @WebParam(name = "tokens", targetNamespace = "")
         List<String> tokens);
-
-    /**
-     * 
-     * @param cat
-     * @return
-     *     returns java.util.List<soapinterface.Product>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProduitsCategorie", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsCategorie")
-    @ResponseWrapper(localName = "getProduitsCategorieResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetProduitsCategorieResponse")
-    @Action(input = "http://www.polytech.fr/ProductService/getProduitsCategorieRequest", output = "http://www.polytech.fr/ProductService/getProduitsCategorieResponse")
-    public List<Product> getProduitsCategorie(
-        @WebParam(name = "cat", targetNamespace = "")
-        String cat);
 
 }

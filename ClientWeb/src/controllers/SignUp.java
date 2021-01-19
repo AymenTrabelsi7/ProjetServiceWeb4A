@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +26,7 @@ import java.security.NoSuchAlgorithmException;
  * Servlet implementation class SignUp
  */
 @WebServlet("/signup")
-public class SignUp extends HttpServlet {
+public class SignUp extends HttpServlet implements Filter  {
 	private static final long serialVersionUID = 1L;
 	ClientService stub = new ClientServiceService().getClientServicePort();
 	HttpSession sess;
@@ -111,6 +115,18 @@ public class SignUp extends HttpServlet {
 
 		
 
+	}
+
+
+
+
+
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 
 }

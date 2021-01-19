@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import util.util;
+
 @Entity
 @Table(name="produits")
 @XmlRootElement
@@ -28,7 +30,7 @@ public class Product implements Serializable {
 	
     @Basic(optional = false)
     @Column(name = "prix")
-	private int prix;
+	private float prix;
 	
     @Basic(optional = false)
     @Column(name = "stock")
@@ -36,7 +38,7 @@ public class Product implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "score")
-	private int score;
+	private float score;
 
     @Basic(optional = false)
     @Column(name = "nom")
@@ -54,7 +56,11 @@ public class Product implements Serializable {
    	private String img;
     
 	
-
+//	@Transient
+//	private String prixString;
+//	
+//	@Transient
+//	private String scoreString;
 	
 
 	
@@ -85,13 +91,17 @@ public class Product implements Serializable {
 
 
 
-	public int getScore() {
+	public float getScore() {
 		return score;
 	}
 
 
+//	public String getScoreString() {
+//		return  util.toPrice(score);
+//	}
+	
 
-	public void setScore(int score) {
+	public void setScore(float score) {
 		this.score = score;
 	}
 
@@ -112,13 +122,23 @@ public class Product implements Serializable {
 	public int getId() {
 		return id;
 	}
+	
+	
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getPrix() {
+
+
+	public float getPrix() {
 		return prix;
 	}
-	public void setPrix(int prix) {
+	
+//	public String getPrixString() {
+//		return  util.toPrice(prix);
+//	}
+	
+	public void setPrix(float prix) {
 		this.prix = prix;
 	}
 	public String getNom() {
@@ -146,6 +166,16 @@ public class Product implements Serializable {
 	public void setImg(String path) {
 		this.img = path;
 	}
+
+
+//	public void setPrixString(String prixString) {
+//		this.prixString = prixString;
+//	}
+//
+//
+//	public void setScoreString(String scoreString) {
+//		this.scoreString = scoreString;
+//	}
 	
 	
 

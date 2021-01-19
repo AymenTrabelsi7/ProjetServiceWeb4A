@@ -85,6 +85,8 @@
 							<wsdlUrl>http://localhost:9000/product?wsdl</wsdlUrl>
 							<wsdlUrl>http://localhost:9000/client?wsdl</wsdlUrl>
 							<wsdlUrl>http://localhost:9000/categories?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:9000/commande?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:9000/shipping?wsdl</wsdlUrl>
 						</wsdlUrls>
 						<keep>true</keep>
 						<packageName>soapinterface</packageName>
@@ -106,7 +108,10 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+	
 	</dependencies>
+	
 
 
 

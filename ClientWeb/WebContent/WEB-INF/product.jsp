@@ -63,6 +63,7 @@
 														<h4>
 															<c:out value="${produit.nom}" />
 														</h4>
+														<hr>
 													</div>
 													<div class="product-desc">
 														<h5>
@@ -126,7 +127,7 @@
 																	<div class="col-sm-2">
 																		<input type="text" id="quantite" name="quantite"
 																		class="form-control input-number text-center" value="1"
-																		min="1" max="100"> 
+																		min="1" max="100" readonly> 
 																	
 																	</div>
 																	
@@ -204,11 +205,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/lib/bootstrap/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
+	<%@ include file="/WEB-INF/common/include_script.jsp"%>
 
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/lib/increment_button.js"></script>

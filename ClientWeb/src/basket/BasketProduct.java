@@ -4,7 +4,8 @@ public class BasketProduct {
 		
 		private String nom,img,description;
 		
-		private int id,quantite,prix,sousTotal;
+		private int id,quantite;
+		private float prix,sousTotal;
 		
 		public BasketProduct() {}
 
@@ -32,11 +33,11 @@ public class BasketProduct {
 			this.quantite = quantite;
 		}
 
-		public int getPrix() {
+		public float getPrix() {
 			return prix;
 		}
 
-		public void setPrix(int prix) {
+		public void setPrix(float prix) {
 			this.prix = prix;
 		}
 
@@ -48,11 +49,11 @@ public class BasketProduct {
 			this.id = id;
 		}
 
-		public int getSousTotal() {
+		public float getSousTotal() {
 			return sousTotal;
 		}
 
-		public void setSousTotal(int sousTotal) {
+		public void setSousTotal(float sousTotal) {
 			this.sousTotal = sousTotal;
 		}
 

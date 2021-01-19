@@ -21,8 +21,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="img" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="score" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="score" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *         &lt;element name="stock" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -50,8 +50,8 @@ public class Product {
     protected int id;
     protected String img;
     protected String nom;
-    protected int prix;
-    protected int score;
+    protected float prix;
+    protected float score;
     protected int stock;
 
     /**
@@ -170,7 +170,7 @@ public class Product {
      * Obtient la valeur de la propriété prix.
      * 
      */
-    public int getPrix() {
+    public float getPrix() {
         return prix;
     }
 
@@ -178,7 +178,7 @@ public class Product {
      * Définit la valeur de la propriété prix.
      * 
      */
-    public void setPrix(int value) {
+    public void setPrix(float value) {
         this.prix = value;
     }
 
@@ -186,7 +186,7 @@ public class Product {
      * Obtient la valeur de la propriété score.
      * 
      */
-    public int getScore() {
+    public float getScore() {
         return score;
     }
 
@@ -194,7 +194,7 @@ public class Product {
      * Définit la valeur de la propriété score.
      * 
      */
-    public void setScore(int value) {
+    public void setScore(float value) {
         this.score = value;
     }
 

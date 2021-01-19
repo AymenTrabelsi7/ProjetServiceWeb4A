@@ -24,11 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Categories_QNAME = new QName("http://www.polytech.fr", "categories");
-    private final static QName _GetCategories_QNAME = new QName("http://www.polytech.fr", "getCategories");
-    private final static QName _GetCategoriesResponse_QNAME = new QName("http://www.polytech.fr", "getCategoriesResponse");
-    private final static QName _IsCategorie_QNAME = new QName("http://www.polytech.fr", "isCategorie");
-    private final static QName _IsCategorieResponse_QNAME = new QName("http://www.polytech.fr", "isCategorieResponse");
+    private final static QName _GetShipping_QNAME = new QName("http://www.polytech.fr", "getShipping");
+    private final static QName _GetShippingByName_QNAME = new QName("http://www.polytech.fr", "getShippingByName");
+    private final static QName _GetShippingByNameResponse_QNAME = new QName("http://www.polytech.fr", "getShippingByNameResponse");
+    private final static QName _GetShippingResponse_QNAME = new QName("http://www.polytech.fr", "getShippingResponse");
+    private final static QName _GetShippings_QNAME = new QName("http://www.polytech.fr", "getShippings");
+    private final static QName _GetShippingsResponse_QNAME = new QName("http://www.polytech.fr", "getShippingsResponse");
+    private final static QName _Shipping_QNAME = new QName("http://www.polytech.fr", "shipping");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soapinterface
@@ -38,108 +40,150 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Categories }
+     * Create an instance of {@link GetShipping }
      * 
      */
-    public Categories createCategories() {
-        return new Categories();
+    public GetShipping createGetShipping() {
+        return new GetShipping();
     }
 
     /**
-     * Create an instance of {@link GetCategories }
+     * Create an instance of {@link GetShippingByName }
      * 
      */
-    public GetCategories createGetCategories() {
-        return new GetCategories();
+    public GetShippingByName createGetShippingByName() {
+        return new GetShippingByName();
     }
 
     /**
-     * Create an instance of {@link GetCategoriesResponse }
+     * Create an instance of {@link GetShippingByNameResponse }
      * 
      */
-    public GetCategoriesResponse createGetCategoriesResponse() {
-        return new GetCategoriesResponse();
+    public GetShippingByNameResponse createGetShippingByNameResponse() {
+        return new GetShippingByNameResponse();
     }
 
     /**
-     * Create an instance of {@link IsCategorie }
+     * Create an instance of {@link GetShippingResponse }
      * 
      */
-    public IsCategorie createIsCategorie() {
-        return new IsCategorie();
+    public GetShippingResponse createGetShippingResponse() {
+        return new GetShippingResponse();
     }
 
     /**
-     * Create an instance of {@link IsCategorieResponse }
+     * Create an instance of {@link GetShippings }
      * 
      */
-    public IsCategorieResponse createIsCategorieResponse() {
-        return new IsCategorieResponse();
+    public GetShippings createGetShippings() {
+        return new GetShippings();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Categories }{@code >}
+     * Create an instance of {@link GetShippingsResponse }
+     * 
+     */
+    public GetShippingsResponse createGetShippingsResponse() {
+        return new GetShippingsResponse();
+    }
+
+    /**
+     * Create an instance of {@link Shipping }
+     * 
+     */
+    public Shipping createShipping() {
+        return new Shipping();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShipping }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Categories }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShipping }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "categories")
-    public JAXBElement<Categories> createCategories(Categories value) {
-        return new JAXBElement<Categories>(_Categories_QNAME, Categories.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShipping")
+    public JAXBElement<GetShipping> createGetShipping(GetShipping value) {
+        return new JAXBElement<GetShipping>(_GetShipping_QNAME, GetShipping.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategories }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShippingByName }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetCategories }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShippingByName }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getCategories")
-    public JAXBElement<GetCategories> createGetCategories(GetCategories value) {
-        return new JAXBElement<GetCategories>(_GetCategories_QNAME, GetCategories.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShippingByName")
+    public JAXBElement<GetShippingByName> createGetShippingByName(GetShippingByName value) {
+        return new JAXBElement<GetShippingByName>(_GetShippingByName_QNAME, GetShippingByName.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategoriesResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShippingByNameResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetCategoriesResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShippingByNameResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getCategoriesResponse")
-    public JAXBElement<GetCategoriesResponse> createGetCategoriesResponse(GetCategoriesResponse value) {
-        return new JAXBElement<GetCategoriesResponse>(_GetCategoriesResponse_QNAME, GetCategoriesResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShippingByNameResponse")
+    public JAXBElement<GetShippingByNameResponse> createGetShippingByNameResponse(GetShippingByNameResponse value) {
+        return new JAXBElement<GetShippingByNameResponse>(_GetShippingByNameResponse_QNAME, GetShippingByNameResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link IsCategorie }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShippingResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link IsCategorie }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShippingResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "isCategorie")
-    public JAXBElement<IsCategorie> createIsCategorie(IsCategorie value) {
-        return new JAXBElement<IsCategorie>(_IsCategorie_QNAME, IsCategorie.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShippingResponse")
+    public JAXBElement<GetShippingResponse> createGetShippingResponse(GetShippingResponse value) {
+        return new JAXBElement<GetShippingResponse>(_GetShippingResponse_QNAME, GetShippingResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link IsCategorieResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShippings }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link IsCategorieResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShippings }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "isCategorieResponse")
-    public JAXBElement<IsCategorieResponse> createIsCategorieResponse(IsCategorieResponse value) {
-        return new JAXBElement<IsCategorieResponse>(_IsCategorieResponse_QNAME, IsCategorieResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShippings")
+    public JAXBElement<GetShippings> createGetShippings(GetShippings value) {
+        return new JAXBElement<GetShippings>(_GetShippings_QNAME, GetShippings.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetShippingsResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetShippingsResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "getShippingsResponse")
+    public JAXBElement<GetShippingsResponse> createGetShippingsResponse(GetShippingsResponse value) {
+        return new JAXBElement<GetShippingsResponse>(_GetShippingsResponse_QNAME, GetShippingsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Shipping }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Shipping }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.fr", name = "shipping")
+    public JAXBElement<Shipping> createShipping(Shipping value) {
+        return new JAXBElement<Shipping>(_Shipping_QNAME, Shipping.class, null, value);
     }
 
 }

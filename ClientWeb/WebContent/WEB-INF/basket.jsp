@@ -126,7 +126,7 @@
 									
 									<div class="col">
 									
-										<a href="order"><button class="btn btn-outline-success btn-lg">Commander</button></a>
+										<a href="shipping"><button class="btn btn-outline-success btn-lg">Commander</button></a>
 									
 									</div>
 								
@@ -162,7 +162,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/lib/bootstrap/js/bootstrap.min.js"></script>
+	<%@ include file="/WEB-INF/common/include_script.jsp"%>
 </body>
 </html>

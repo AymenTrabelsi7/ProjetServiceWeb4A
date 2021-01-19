@@ -1,7 +1,12 @@
 package controllers;
 
 import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class SignOut
  */
 @WebServlet("/signout")
-public class SignOut extends HttpServlet {
+public class SignOut extends HttpServlet implements Filter  {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -41,6 +46,13 @@ public class SignOut extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	}
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 
 }

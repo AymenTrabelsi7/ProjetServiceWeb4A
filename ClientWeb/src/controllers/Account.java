@@ -3,7 +3,11 @@ package controllers;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +22,7 @@ import util.password;
  * Servlet implementation class Account
  */
 @WebServlet("/myaccount")
-public class Account extends HttpServlet {
+public class Account extends HttpServlet implements Filter {
 	private static final long serialVersionUID = 1L;
 	ClientService stub = new ClientServiceService().getClientServicePort();
 	soapinterface.Client c;
@@ -107,6 +111,13 @@ public class Account extends HttpServlet {
 		response.sendRedirect("myaccount");
 			
 			
+	}
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 		
 		

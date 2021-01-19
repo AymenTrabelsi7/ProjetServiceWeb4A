@@ -24,12 +24,15 @@ public class ProductManager {
 	public Product getProduit(int id) {
 		em.clear();
 		Product p = em.find(Product.class,id);
+		
+		System.out.println("Description : " + p.getDescription());
+		
 		return p;
 	}
 	
 	public List<Product> getProduitsIndex() {
 		em.clear();
-		TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p"/*WHERE (id<=SELECT DISTINCT max(p.id) FROM produit p)) AND (id>=(SELECT DISTINCT max(p.id) FROM produit p)-50)*/, Product.class);
+		TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p", Product.class);
 		List<Product> result = query.getResultList();
 		return result;
 	}

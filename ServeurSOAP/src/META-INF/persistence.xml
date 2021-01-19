@@ -10,6 +10,9 @@
 		<class>EJBs.Client</class>
 		<class>EJBs.Product</class>
 		<class>EJBs.Categories</class>
+		<class>EJBs.Commande</class>
+		<class>EJBs.LigneCommande</class>
+		<class>EJBs.Shipping</class>
 		<properties>
 		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/applicationwebecommerce"/>
          	<property name="javax.persistence.jdbc.user" value="admin"/>

@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +24,7 @@ import util.password;
  * Servlet implementation class SignIn
  */
 @WebServlet("/signin")
-public class SignIn extends HttpServlet {
+public class SignIn extends HttpServlet implements Filter  {
 	private static final long serialVersionUID = 1L;
 	ClientService stub = new ClientServiceService().getClientServicePort();
 
@@ -48,32 +52,34 @@ public class SignIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		String usr = request.getParameter("username");
-		System.out.println("usr : "+usr);
-		System.out.println("clear mdp : " + request.getParameter("mdp"));
 		try {
 			String mdp = password.toHexString(password.getSHA(request.getParameter("mdp")));
-			System.out.println("Hashed Mdp : " + mdp);
 			if(stub.login(usr, mdp)) {
-				System.out.println("Login success");
 				sess.setAttribute("connected", true);
 				sess.setAttribute("username", usr);
 				basket.Basket basket = new basket.Basket();
 				sess.setAttribute("userBasket", basket.getProducts());
-				sess.setAttribute("basketTotal", 0);
+				sess.setAttribute("basketTotal", 0.0f);
 				if(sess.getAttribute("redirectSource") != null) {
 					response.sendRedirect((String) sess.getAttribute("redirectSource"));
-					sess.setAttribute("redirectSource", null);
+					sess.removeAttribute("redirectSource");
 				}
 				else response.sendRedirect("index");
 			}
 			else {
-				System.out.println("Login failed");
 				sess.setAttribute("logError", true);
 				response.sendRedirect("signin");
 			}
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}		
+	}
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 
 }

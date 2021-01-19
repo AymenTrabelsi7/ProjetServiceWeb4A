@@ -27,6 +27,18 @@ public interface CategoriesService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<soapinterface.Categories>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCategories", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetCategories")
+    @ResponseWrapper(localName = "getCategoriesResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetCategoriesResponse")
+    @Action(input = "http://www.polytech.fr/CategoriesService/getCategoriesRequest", output = "http://www.polytech.fr/CategoriesService/getCategoriesResponse")
+    public List<Categories> getCategories();
+
+    /**
+     * 
      * @param cat
      * @return
      *     returns boolean
@@ -39,17 +51,5 @@ public interface CategoriesService {
     public boolean isCategorie(
         @WebParam(name = "cat", targetNamespace = "")
         String cat);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<soapinterface.Categories>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCategories", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetCategories")
-    @ResponseWrapper(localName = "getCategoriesResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetCategoriesResponse")
-    @Action(input = "http://www.polytech.fr/CategoriesService/getCategoriesRequest", output = "http://www.polytech.fr/CategoriesService/getCategoriesResponse")
-    public List<Categories> getCategories();
 
 }

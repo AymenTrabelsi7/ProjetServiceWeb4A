@@ -160,7 +160,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>Shipping</servlet-name>
-		<url-pattern>/order/shipping</url-pattern>
+		<url-pattern>/shipping</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -170,18 +170,18 @@
 	
 	<servlet-mapping>
 		<servlet-name>Payment</servlet-name>
-		<url-pattern>/order/payment</url-pattern>
+		<url-pattern>/payment</url-pattern>
 	</servlet-mapping>
 	
 	
 	<servlet>
 		<servlet-name>Confirmation</servlet-name>
-		<servlet-class>controllers.Confirmation</servlet-class>
+		<servlet-class>controllers.OrderConfirmation</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>Confirmation</servlet-name>
-		<url-pattern>/order/confirmation</url-pattern>
+		<url-pattern>/orderconfirmation</url-pattern>
 	</servlet-mapping>
 
 

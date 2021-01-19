@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +23,7 @@ import soapinterface.ProductServiceService;
  * Servlet implementation class Search
  */
 @WebServlet("/search")
-public class Search extends HttpServlet {
+public class Search extends HttpServlet implements Filter  {
 	private static final long serialVersionUID = 1L;
 	ProductService stub = new ProductServiceService().getProductServicePort();
        
@@ -53,6 +57,14 @@ public class Search extends HttpServlet {
 		List<soapinterface.Product> result = stub.getProduitsSearch(tokens);
 		sess.setAttribute("search_results", result);
 		response.sendRedirect("search");
+	}
+
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 
 }

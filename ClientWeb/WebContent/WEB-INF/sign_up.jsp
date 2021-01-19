@@ -24,7 +24,7 @@
 
 			<div class="col-xxl mx-auto">
 
-				<div class="container">
+				<div class="container-fluid">
 				
 					<c:choose>
 					
@@ -99,7 +99,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/lib/bootstrap/js/bootstrap.min.js"></script>
+	<%@ include file="/WEB-INF/common/include_script.jsp"%>
 </body>
 </html>

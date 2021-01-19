@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Basket {
 	
 	private ArrayList<BasketProduct> products;
-	private int total;
+	private float total;
 	
 	public Basket() {
 		this.products = new ArrayList<BasketProduct>(0);
@@ -47,7 +47,7 @@ public class Basket {
 		if(indexProduit != -1) {
 			BasketProduct p = this.getProducts().get(indexProduit);
 			p.setQuantite(qte);
-			int ancienSousTotal = p.getSousTotal();
+			float ancienSousTotal = p.getSousTotal();
 			p.setSousTotal(qte*p.getPrix());
 			this.setTotal(this.getTotal()+(p.getSousTotal()-ancienSousTotal));
 		}
@@ -61,11 +61,11 @@ public class Basket {
 		this.products = products;
 	}
 
-	public int getTotal() {
+	public float getTotal() {
 		return total;
 	}
 
-	public void setTotal(int total) {
+	public void setTotal(float total) {
 		this.total = total;
 	}
 	

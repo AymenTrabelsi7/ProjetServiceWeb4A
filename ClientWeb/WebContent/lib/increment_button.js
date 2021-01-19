@@ -17,7 +17,7 @@ $(document).ready(function(){
         e.preventDefault();
         var quantity = parseInt($('#quantite').val());
               
-            if(quantity>0){
+            if(quantity>1){
             $('#quantite').val(quantity - 1);
             }
     });

@@ -3,7 +3,11 @@ package controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +22,7 @@ import soapinterface.ProductServiceService;
  * Servlet implementation class Product
  */
 @WebServlet("/product")
-public class Product extends HttpServlet {
+public class Product extends HttpServlet implements Filter  {
 	private static final long serialVersionUID = 1L;
 	soapinterface.Product produit;
 	ProductService stub = new ProductServiceService().getProductServicePort();
@@ -31,6 +35,13 @@ public class Product extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public int isInBasket(ArrayList<BasketProduct> userBasket,int id) {
+    	for (BasketProduct basketProduct : userBasket) {
+			if(basketProduct.getId() == id) return userBasket.indexOf(basketProduct);
+		}
+    	return -1;
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -52,8 +63,8 @@ public class Product extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		sess = request.getSession();
+		int id = Integer.parseInt(request.getParameter("productId"));
 		if(sess.getAttribute("connected") != null && (boolean)sess.getAttribute("connected")) {			
-			int id = Integer.parseInt(request.getParameter("productId"));
 			int qte = Integer.parseInt(request.getParameter("quantite"));
 			if(!(boolean)sess.getAttribute("connected")) {
 				sess.setAttribute("redirectSource", "product?id="+id);
@@ -62,18 +73,34 @@ public class Product extends HttpServlet {
 			else {
 				@SuppressWarnings("unchecked")
 				ArrayList<BasketProduct> userBasket = (ArrayList<BasketProduct>)sess.getAttribute("userBasket");
-				int total = (int)sess.getAttribute("basketTotal");
+				System.out.println(sess.getAttribute("basketTotal"));
+				float total = (float) sess.getAttribute("basketTotal");
+				int index = isInBasket(userBasket, id);
 				basket.Basket basket = new basket.Basket();
 				basket.setTotal(total);
 				basket.setProducts(userBasket);
-				System.out.println(stub.getProduit(id));
-				basket.ajouterProduit(stub.getProduit(id),qte);
+				if(index == -1) {					
+					basket.ajouterProduit(stub.getProduit(id),qte);
+				}
+				else {
+					basket.changerQuantite(id, basket.getProducts().get(index).getQuantite() + qte);
+				}
 				sess.setAttribute("userBasket", basket.getProducts());
 				sess.setAttribute("basketTotal", basket.getTotal());
 				sess.setAttribute("addedToCart", true);
 				response.sendRedirect("product?id="+id);
 			}
-		} else response.sendRedirect("signin");
+		} else {
+			sess.setAttribute("redirectSource", "product?id="+id);			
+			response.sendRedirect("signin");
+		}
+	}
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
+		util.attributes.verifyBasket(r.getSession());		
 	}
 
 }

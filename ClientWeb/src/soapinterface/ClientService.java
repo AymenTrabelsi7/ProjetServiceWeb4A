@@ -26,36 +26,6 @@ public interface ClientService {
 
     /**
      * 
-     * @param newCli
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "update", targetNamespace = "http://www.polytech.fr", className = "soapinterface.Update")
-    @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.UpdateResponse")
-    @Action(input = "http://www.polytech.fr/ClientService/updateRequest", output = "http://www.polytech.fr/ClientService/updateResponse")
-    public boolean update(
-        @WebParam(name = "newCli", targetNamespace = "")
-        Client newCli);
-
-    /**
-     * 
-     * @param client
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createAccount", targetNamespace = "http://www.polytech.fr", className = "soapinterface.CreateAccount")
-    @ResponseWrapper(localName = "createAccountResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.CreateAccountResponse")
-    @Action(input = "http://www.polytech.fr/ClientService/createAccountRequest", output = "http://www.polytech.fr/ClientService/createAccountResponse")
-    public boolean createAccount(
-        @WebParam(name = "client", targetNamespace = "")
-        Client client);
-
-    /**
-     * 
      * @param usr
      * @param mdp
      * @return
@@ -71,6 +41,21 @@ public interface ClientService {
         String usr,
         @WebParam(name = "mdp", targetNamespace = "")
         String mdp);
+
+    /**
+     * 
+     * @param client
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createAccount", targetNamespace = "http://www.polytech.fr", className = "soapinterface.CreateAccount")
+    @ResponseWrapper(localName = "createAccountResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.CreateAccountResponse")
+    @Action(input = "http://www.polytech.fr/ClientService/createAccountRequest", output = "http://www.polytech.fr/ClientService/createAccountResponse")
+    public boolean createAccount(
+        @WebParam(name = "client", targetNamespace = "")
+        Client client);
 
     /**
      * 
@@ -173,5 +158,20 @@ public interface ClientService {
         String usr,
         @WebParam(name = "mdp", targetNamespace = "")
         String mdp);
+
+    /**
+     * 
+     * @param newCli
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "update", targetNamespace = "http://www.polytech.fr", className = "soapinterface.Update")
+    @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.UpdateResponse")
+    @Action(input = "http://www.polytech.fr/ClientService/updateRequest", output = "http://www.polytech.fr/ClientService/updateResponse")
+    public boolean update(
+        @WebParam(name = "newCli", targetNamespace = "")
+        Client newCli);
 
 }

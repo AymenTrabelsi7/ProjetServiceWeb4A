@@ -55,7 +55,7 @@
 							<c:when test="${connected}">
 								
 								<c:choose>
-									<c:when test="${userBasket.size()==0}">
+									<c:when test="${userBasket.size()==0 || userBasket == null}">
 									
 										<div class="dropdown-item">Votre panier est vide.</div>
 									
@@ -75,10 +75,10 @@
 
 											<div class="row">
 
-												<div class="col-xl-5">
+												<div class="col-xl-4 text-center">
 													
 														<a href="product?id=${basketProduct.id}"><img alt=""
-															class="img-thumbnail img-basket mx-auto"
+															class="img-thumbnail mx-auto" style="max-height:100px;width:auto;"
 															src="<%=request.getContextPath()%>/img/${basketProduct.img}"></a>
 													
 												</div>
@@ -117,7 +117,7 @@
 								
 								<div class="dropdown-divider"></div>
 								
-								<div class="dropdown-item text-center"><a href="order"><button type="button" class="btn btn-success">Commander</button></a></div>
+								<div class="dropdown-item text-center"><a href="shipping"><button type="button" class="btn btn-success">Commander</button></a></div>
 									
 									
 									</c:otherwise>
