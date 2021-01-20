@@ -1,5 +1,7 @@
 package EJBs;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,8 +13,13 @@ import util.util;
 @Entity
 @Table(name="ligne_commande")
 @XmlRootElement
-public class LigneCommande {
+public class LigneCommande implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8528748480294024810L;
+
 	@Id
 	private int id_ligne;
 	

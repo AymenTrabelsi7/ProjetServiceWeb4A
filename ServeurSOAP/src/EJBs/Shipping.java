@@ -1,5 +1,6 @@
 package EJBs;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import util.util;
 @Entity
 @Table(name="shippings")
 @XmlRootElement
-public class Shipping {
+public class Shipping implements Serializable {
 	
 	@Id
 	private int id_shipping;
