@@ -2,7 +2,7 @@ package basket;
 
 public class BasketProduct {
 		
-		private String nom,img,description;
+		private String nom,img,description,prixString,sousTotalString;
 		
 		private int id,quantite;
 		private float prix,sousTotal;
@@ -63,6 +63,22 @@ public class BasketProduct {
 
 		public void setDescription(String description) {
 			this.description = description;
+		}
+
+		public String getPrixString() {
+			return prixString;
+		}
+
+		public void setPrixString(String prixString) {
+			this.prixString = prixString;
+		}
+
+		public String getSousTotalString() {
+			return sousTotalString;
+		}
+
+		public void setSousTotalString(String sousTotalString) {
+			this.sousTotalString = sousTotalString;
 		}
 		
 		

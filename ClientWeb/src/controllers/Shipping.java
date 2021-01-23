@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import EJBs.LigneCommande;
-import EJBs.Product;
-import EJBs.Shipping;
 import basket.BasketProduct;
 import soapinterface.Commande;
 import soapinterface.CommandesService;
@@ -52,47 +49,27 @@ public class Shipping extends HttpServlet implements Filter  {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sess = request.getSession();
+		
 		@SuppressWarnings("unchecked")
 		ArrayList<BasketProduct> userBasket = (ArrayList<BasketProduct>) sess.getAttribute("userBasket");
-		if(userBasket != null && userBasket.size() > 0) {	
+		if(userBasket != null && userBasket.size() > 0) {
 			shippings = shipping_stub.getShippings();
-			sess.setAttribute("shippings", shippings);
+			request.setAttribute("shippings", shippings);
 			if(request.getParameter("choice") != null) {
-				int choice = Integer.parseInt(request.getParameter("choice"));
+				int choice = Integer.parseInt((String)request.getParameter("choice"));
 				soapinterface.Commande commande = new Commande();
-				
-				
+				commande.setIdClient((String)sess.getAttribute("username"));
+				commande.setStatut("En cours");
 				boolean containChoice = false;
 				for (soapinterface.Shipping s : shippings) {
 					if(s.getIdShipping() == choice) containChoice = true;
 				}
-				
 				if(containChoice) {
-					List<soapinterface.LigneCommande> lignes;
 					for (BasketProduct pb : userBasket) {					
-						soapinterface.LigneCommande l = new soapinterface.LigneCommande();
-						l.setIdCommande(commande.getId());
-						l.setIdProduit(pb.getId());
-						l.setQte(pb.getQuantite());
-						soapinterface.Product p = product_access.getProduit(pb.getId());
-						l.setNom(p.getNom());
-						l.setPrixUnitaire(p.getPrix());
-						l.setSousTot(l.getPrixUnitaire()*l.getQte());
-						lignes = commande.getProduits() != null ? commande.getProduits() : new ArrayList<soapinterface.LigneCommande>(0);
-						lignes.add(l);
+						commande = commande_stub.ajouterProduit(commande, pb.getId(), pb.getQuantite());
 					}
 					
-					commande.setProduits((ArrayList<soapinterface.LigneCommande>)lignes);
-					commande.setTotalHt(commande.getTotalHt()+l.getSousTot());
-					commande.setStatut("En cours");
-					
-					
-					//commande = commande_stub.applyShipping(commande,choice);
-					
-					soapinterface.Shipping s = shipping_stub.getShipping(choice);
-					commande.setChoixLivraison(s.getNomComplet());
-					commande.setFraisLivraison(s.getPrix());
-					commande.setTotalTtc(commande.getTotalHt()+s.getPrix());
+					commande = commande_stub.applyShipping(commande,choice);
 					
 					sess.setAttribute("commande", commande);
 					response.sendRedirect("payment");
@@ -105,12 +82,14 @@ public class Shipping extends HttpServlet implements Filter  {
 				this.getServletContext().getRequestDispatcher("/WEB-INF/shipping_alt.jsp").forward(request, response);
 			}
 		}
+		
 		else response.sendRedirect("index");
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		request.setCharacterEncoding("UTF-8");
 		HttpServletRequest r = (HttpServletRequest) request;
 		util.attributes.verifyBasket(r.getSession());		
 	}

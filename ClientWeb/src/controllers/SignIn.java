@@ -59,7 +59,8 @@ public class SignIn extends HttpServlet implements Filter  {
 				sess.setAttribute("username", usr);
 				basket.Basket basket = new basket.Basket();
 				sess.setAttribute("userBasket", basket.getProducts());
-				sess.setAttribute("basketTotal", 0.0f);
+				sess.setAttribute("basketTotal", basket.getTotal());
+				sess.setAttribute("basketTotalString", basket.getTotalString());
 				if(sess.getAttribute("redirectSource") != null) {
 					response.sendRedirect((String) sess.getAttribute("redirectSource"));
 					sess.removeAttribute("redirectSource");

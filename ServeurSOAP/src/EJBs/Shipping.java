@@ -2,50 +2,60 @@ package EJBs;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import util.util;
 
 @Entity
 @Table(name="shippings")
 @XmlRootElement
 public class Shipping implements Serializable {
 	
-	@Id
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8265609576330364169L;
+
+	
 	private int id_shipping;
 	
 	private String nom_complet,nom_var,icon;
 	private int duree_livraison;
 	private float prix;
 	
-//	@Transient
-//	private LocalDate date;
-//	
-//	@Transient
-//	private String prixString;
+	
+	private String date;
+	
+	
+	private String prixString;
 	
 	
 	public Shipping() {}
 	
 	
-	
-//	public LocalDate getDate() {
-//		return date;
-//	}
-//
-//
-//
-//	public void setDate(LocalDate date) {
-//		this.date = date;
-//	}
+	@Transient
+	public String getDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		date = LocalDate.now().plusDays(duree_livraison).format(formatter);
+		return date;
+	}
 
 
 
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	public int getId_shipping() {
 		return id_shipping;
 	}
@@ -80,9 +90,11 @@ public class Shipping implements Serializable {
 		return prix;
 	}
 	
-//	public String getPrixString() {
-//		return  util.toPrice(prix);
-//	}
+	@Transient
+	public String getPrixString() {
+		prixString = String.format("%.2f",prix);
+		return  prixString;
+	}
 	
 	public void setPrix(float prix) {
 		this.prix = prix;
@@ -90,9 +102,9 @@ public class Shipping implements Serializable {
 
 
 
-//	public void setPrixString(String prixString) {
-//		this.prixString = prixString;
-//	}
+	public void setPrixString(String prixString) {
+		this.prixString = prixString;
+	}
 	
 	
 }

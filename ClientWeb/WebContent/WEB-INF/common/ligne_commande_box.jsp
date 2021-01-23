@@ -7,8 +7,7 @@
 	
 													<div class="text-danger">
 														Sous-Total :
-														<c:out value="${param.sousTot}" />
-														&euro;
+														<c:out value="${param.sousTotString}" />&euro;
 													</div>
 	
 												</div>

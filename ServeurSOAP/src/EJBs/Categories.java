@@ -17,11 +17,9 @@ public class Categories implements Serializable {
 
 	private static final long serialVersionUID = -3015056552312149164L;
 	
-	@Id
-	@Column(name = "nom")
+	
 	private String nom;
 	
-	@Column(name = "img")
 	private String img;
 	
 	
@@ -39,6 +37,7 @@ public class Categories implements Serializable {
 		this.img = path;
 	}
 
+	@Id
 	public String getNom() {
 		return nom;
 	}

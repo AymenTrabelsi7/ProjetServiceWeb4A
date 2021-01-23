@@ -27,6 +27,18 @@ public interface ShippingService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<soapinterface.Shipping>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getShippings", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetShippings")
+    @ResponseWrapper(localName = "getShippingsResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetShippingsResponse")
+    @Action(input = "http://www.polytech.fr/ShippingService/getShippingsRequest", output = "http://www.polytech.fr/ShippingService/getShippingsResponse")
+    public List<Shipping> getShippings();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns soapinterface.Shipping
@@ -39,18 +51,6 @@ public interface ShippingService {
     public Shipping getShipping(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<soapinterface.Shipping>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getShippings", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetShippings")
-    @ResponseWrapper(localName = "getShippingsResponse", targetNamespace = "http://www.polytech.fr", className = "soapinterface.GetShippingsResponse")
-    @Action(input = "http://www.polytech.fr/ShippingService/getShippingsRequest", output = "http://www.polytech.fr/ShippingService/getShippingsResponse")
-    public List<Shipping> getShippings();
 
     /**
      * 

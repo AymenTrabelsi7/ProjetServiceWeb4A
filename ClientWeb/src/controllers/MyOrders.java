@@ -1,7 +1,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -40,7 +39,8 @@ public class MyOrders extends HttpServlet implements Filter  {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(sess.getAttribute("connected") != null) {			
+		sess = request.getSession();
+		if(sess.getAttribute("connected") != null && (boolean) sess.getAttribute("connected")) {			
 			List<Commande> commandes = commande_stub.getUserCommandes((String)sess.getAttribute("username"));
 			request.setAttribute("commandes", commandes);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/myorders.jsp").forward(request, response);
@@ -48,14 +48,6 @@ public class MyOrders extends HttpServlet implements Filter  {
 			sess.setAttribute("redirectSource", "myorders");
 			response.sendRedirect("signin");
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 	@Override

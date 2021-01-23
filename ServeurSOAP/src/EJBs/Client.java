@@ -17,13 +17,14 @@ public class Client implements Serializable{
 	
 	private static final long serialVersionUID = 6432662000163956462L;
 	
-	@Id
+	
 	private String username;
 	
 	private String nom,prenom,email,hashed_mdp,paypal_account,cb_coord;
 	
 	public Client() {}
 
+	@Id
 	public String getUsername() {
 		return username;
 	}

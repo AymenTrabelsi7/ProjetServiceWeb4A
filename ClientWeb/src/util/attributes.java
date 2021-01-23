@@ -10,6 +10,7 @@ public class attributes {
 			Basket basket = new Basket();
 			sess.setAttribute("userBasket", basket.getProducts());
 			sess.setAttribute("basketTotal", basket.getTotal());
+			sess.setAttribute("basketTotalString", basket.getTotalString());
 		}
 	}
 }

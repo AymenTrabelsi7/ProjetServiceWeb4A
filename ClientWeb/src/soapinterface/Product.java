@@ -22,7 +22,9 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="img" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="prixString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="score" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="scoreString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="stock" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -40,7 +42,9 @@ import javax.xml.bind.annotation.XmlType;
     "img",
     "nom",
     "prix",
+    "prixString",
     "score",
+    "scoreString",
     "stock"
 })
 public class Product {
@@ -51,7 +55,9 @@ public class Product {
     protected String img;
     protected String nom;
     protected float prix;
+    protected String prixString;
     protected float score;
+    protected String scoreString;
     protected int stock;
 
     /**
@@ -183,6 +189,30 @@ public class Product {
     }
 
     /**
+     * Obtient la valeur de la propriété prixString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPrixString() {
+        return prixString;
+    }
+
+    /**
+     * Définit la valeur de la propriété prixString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPrixString(String value) {
+        this.prixString = value;
+    }
+
+    /**
      * Obtient la valeur de la propriété score.
      * 
      */
@@ -196,6 +226,30 @@ public class Product {
      */
     public void setScore(float value) {
         this.score = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété scoreString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getScoreString() {
+        return scoreString;
+    }
+
+    /**
+     * Définit la valeur de la propriété scoreString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setScoreString(String value) {
+        this.scoreString = value;
     }
 
     /**

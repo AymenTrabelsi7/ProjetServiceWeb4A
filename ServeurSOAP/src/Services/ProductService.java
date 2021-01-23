@@ -15,15 +15,7 @@ public class ProductService {
 	
 	@WebMethod(operationName = "getProduitsIndex")
 	public List<Product> getProduitsIndex() {
-		List<Product> ps =  access.getProduitsIndex();
-		try {
-			return ps;
-			
-		} catch(Exception e) {
-			System.out.println("DEBUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-			e.printStackTrace();
-			return ps;
-		}
+		return access.getProduitsIndex();
 	}
 	
 	@WebMethod(operationName = "getProduit")

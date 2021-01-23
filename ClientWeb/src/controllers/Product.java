@@ -54,6 +54,7 @@ public class Product extends HttpServlet implements Filter  {
 		request.setAttribute("produit", produit);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(request, response);
 		sess.removeAttribute("addedToCart");
+		sess.removeAttribute("qteError");
 	}
 
 	/**
@@ -65,31 +66,34 @@ public class Product extends HttpServlet implements Filter  {
 		sess = request.getSession();
 		int id = Integer.parseInt(request.getParameter("productId"));
 		if(sess.getAttribute("connected") != null && (boolean)sess.getAttribute("connected")) {			
-			int qte = Integer.parseInt(request.getParameter("quantite"));
-			if(!(boolean)sess.getAttribute("connected")) {
-				sess.setAttribute("redirectSource", "product?id="+id);
-				response.sendRedirect("signin");
-			}
-			else {
-				@SuppressWarnings("unchecked")
-				ArrayList<BasketProduct> userBasket = (ArrayList<BasketProduct>)sess.getAttribute("userBasket");
-				System.out.println(sess.getAttribute("basketTotal"));
-				float total = (float) sess.getAttribute("basketTotal");
-				int index = isInBasket(userBasket, id);
-				basket.Basket basket = new basket.Basket();
-				basket.setTotal(total);
-				basket.setProducts(userBasket);
-				if(index == -1) {					
-					basket.ajouterProduit(stub.getProduit(id),qte);
+				int qte = Integer.parseInt(request.getParameter("quantite"));
+				int stock = stub.getProduit(id).getStock();
+				
+				if(qte>stock) {
+					sess.setAttribute("qteError", true);
+					response.sendRedirect("product?id="+id);
 				}
-				else {
-					basket.changerQuantite(id, basket.getProducts().get(index).getQuantite() + qte);
+				else {					
+					@SuppressWarnings("unchecked")
+					ArrayList<BasketProduct> userBasket = (ArrayList<BasketProduct>)sess.getAttribute("userBasket");
+					float total = (float) sess.getAttribute("basketTotal");
+					int index = isInBasket(userBasket, id);
+					basket.Basket basket = new basket.Basket();
+					basket.setTotal(total);
+					basket.setProducts(userBasket);
+					if(index == -1) {					
+						basket.ajouterProduit(stub.getProduit(id),qte);
+					}
+					else {
+						basket.changerQuantite(id, basket.getProducts().get(index).getQuantite() + qte);
+					}
+					sess.setAttribute("userBasket", basket.getProducts());
+					sess.setAttribute("basketTotal", basket.getTotal());
+					sess.setAttribute("basketTotalString", basket.getTotalString());
+					sess.setAttribute("addedToCart", true);
+					response.sendRedirect("product?id="+id);
 				}
-				sess.setAttribute("userBasket", basket.getProducts());
-				sess.setAttribute("basketTotal", basket.getTotal());
-				sess.setAttribute("addedToCart", true);
-				response.sendRedirect("product?id="+id);
-			}
+		
 		} else {
 			sess.setAttribute("redirectSource", "product?id="+id);			
 			response.sendRedirect("signin");

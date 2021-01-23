@@ -60,14 +60,14 @@
 
 												<a href="product?id=${basketProduct.id}"><c:out
 														value="${basketProduct.nom}" /></a> <br> Prix :
-												<c:out value="${basketProduct.prix}" />
+												<c:out value="${basketProduct.prixString}" />
 												&euro; <br> Qté :
 												<c:out value="${basketProduct.quantite}" />
 												<br>
 
 												<div class="text-danger">
 													Sous-Total :
-													<c:out value="${basketProduct.sousTotal}" />
+													<c:out value="${basketProduct.sousTotalString}" />
 													&euro;
 												</div>
 
@@ -120,7 +120,7 @@
 								
 									<div class="col">
 									
-										<h2 class="text-dark">Total : <c:out value="${basketTotal}"/>&euro;</h2>
+										<h2 class="text-dark">Total : <c:out value="${basketTotalString}"/>&euro;</h2>
 									
 									</div>
 									

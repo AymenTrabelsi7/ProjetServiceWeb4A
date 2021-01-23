@@ -97,7 +97,7 @@
 					</table>	
 					
 					
-					<h3 class="my-4">Total Commande (sans frais de livraison) : <span class="text-danger">${basketTotal} &euro;</span></h3>
+					<h3 class="my-4">Total Commande (sans frais de livraison) : <span class="text-danger">${basketTotalString} &euro;</span></h3>
 				
 
 				</div>

@@ -60,6 +60,7 @@ public class Basket extends HttpServlet implements Filter  {
 		basket.supprimerProduit(id);
 		sess.setAttribute("userBasket", basket.getProducts());
 		sess.setAttribute("basketTotal", basket.getTotal());
+		sess.setAttribute("basketTotalString", basket.getTotalString());
 		response.sendRedirect("basket");
 	}
 

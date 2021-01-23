@@ -17,12 +17,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="duree_livraison" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="icon" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id_shipping" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="nom_complet" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="nom_var" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="prixString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,15 +35,18 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "shipping", propOrder = {
+    "date",
     "dureeLivraison",
     "icon",
     "idShipping",
     "nomComplet",
     "nomVar",
-    "prix"
+    "prix",
+    "prixString"
 })
 public class Shipping {
 
+    protected String date;
     @XmlElement(name = "duree_livraison")
     protected int dureeLivraison;
     protected String icon;
@@ -52,6 +57,31 @@ public class Shipping {
     @XmlElement(name = "nom_var")
     protected String nomVar;
     protected float prix;
+    protected String prixString;
+
+    /**
+     * Obtient la valeur de la propriété date.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDate() {
+        return date;
+    }
+
+    /**
+     * Définit la valeur de la propriété date.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDate(String value) {
+        this.date = value;
+    }
 
     /**
      * Obtient la valeur de la propriété dureeLivraison.
@@ -171,6 +201,30 @@ public class Shipping {
      */
     public void setPrix(float value) {
         this.prix = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété prixString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPrixString() {
+        return prixString;
+    }
+
+    /**
+     * Définit la valeur de la propriété prixString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPrixString(String value) {
+        this.prixString = value;
     }
 
 }

@@ -21,9 +21,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="adresse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="choix_livraison" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="date_commande" type="{http://www.polytech.fr}localDate" minOccurs="0"/&gt;
- *         &lt;element name="date_livraison" type="{http://www.polytech.fr}localDate" minOccurs="0"/&gt;
+ *         &lt;element name="date_commande" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="date_livraison" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="frais_livraison" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="frais_livraisonString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="id_client" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id_produits" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -31,7 +32,9 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="produits" type="{http://www.polytech.fr}ligneCommande" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element name="statut" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="total_ht" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="total_htString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="total_ttc" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="total_ttcString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -47,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
     "dateCommande",
     "dateLivraison",
     "fraisLivraison",
+    "fraisLivraisonString",
     "id",
     "idClient",
     "idProduits",
@@ -54,7 +58,9 @@ import javax.xml.bind.annotation.XmlType;
     "produits",
     "statut",
     "totalHt",
-    "totalTtc"
+    "totalHtString",
+    "totalTtc",
+    "totalTtcString"
 })
 public class Commande {
 
@@ -62,11 +68,13 @@ public class Commande {
     @XmlElement(name = "choix_livraison")
     protected String choixLivraison;
     @XmlElement(name = "date_commande")
-    protected LocalDate dateCommande;
+    protected String dateCommande;
     @XmlElement(name = "date_livraison")
-    protected LocalDate dateLivraison;
+    protected String dateLivraison;
     @XmlElement(name = "frais_livraison")
     protected float fraisLivraison;
+    @XmlElement(name = "frais_livraisonString")
+    protected String fraisLivraisonString;
     protected int id;
     @XmlElement(name = "id_client")
     protected String idClient;
@@ -79,8 +87,12 @@ public class Commande {
     protected String statut;
     @XmlElement(name = "total_ht")
     protected float totalHt;
+    @XmlElement(name = "total_htString")
+    protected String totalHtString;
     @XmlElement(name = "total_ttc")
     protected float totalTtc;
+    @XmlElement(name = "total_ttcString")
+    protected String totalTtcString;
 
     /**
      * Obtient la valeur de la propriété adresse.
@@ -135,10 +147,10 @@ public class Commande {
      * 
      * @return
      *     possible object is
-     *     {@link LocalDate }
+     *     {@link String }
      *     
      */
-    public LocalDate getDateCommande() {
+    public String getDateCommande() {
         return dateCommande;
     }
 
@@ -147,10 +159,10 @@ public class Commande {
      * 
      * @param value
      *     allowed object is
-     *     {@link LocalDate }
+     *     {@link String }
      *     
      */
-    public void setDateCommande(LocalDate value) {
+    public void setDateCommande(String value) {
         this.dateCommande = value;
     }
 
@@ -159,10 +171,10 @@ public class Commande {
      * 
      * @return
      *     possible object is
-     *     {@link LocalDate }
+     *     {@link String }
      *     
      */
-    public LocalDate getDateLivraison() {
+    public String getDateLivraison() {
         return dateLivraison;
     }
 
@@ -171,10 +183,10 @@ public class Commande {
      * 
      * @param value
      *     allowed object is
-     *     {@link LocalDate }
+     *     {@link String }
      *     
      */
-    public void setDateLivraison(LocalDate value) {
+    public void setDateLivraison(String value) {
         this.dateLivraison = value;
     }
 
@@ -192,6 +204,30 @@ public class Commande {
      */
     public void setFraisLivraison(float value) {
         this.fraisLivraison = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété fraisLivraisonString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getFraisLivraisonString() {
+        return fraisLivraisonString;
+    }
+
+    /**
+     * Définit la valeur de la propriété fraisLivraisonString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setFraisLivraisonString(String value) {
+        this.fraisLivraisonString = value;
     }
 
     /**
@@ -352,6 +388,30 @@ public class Commande {
     }
 
     /**
+     * Obtient la valeur de la propriété totalHtString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTotalHtString() {
+        return totalHtString;
+    }
+
+    /**
+     * Définit la valeur de la propriété totalHtString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTotalHtString(String value) {
+        this.totalHtString = value;
+    }
+
+    /**
      * Obtient la valeur de la propriété totalTtc.
      * 
      */
@@ -365,6 +425,30 @@ public class Commande {
      */
     public void setTotalTtc(float value) {
         this.totalTtc = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété totalTtcString.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTotalTtcString() {
+        return totalTtcString;
+    }
+
+    /**
+     * Définit la valeur de la propriété totalTtcString.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTotalTtcString(String value) {
+        this.totalTtcString = value;
     }
 
 }

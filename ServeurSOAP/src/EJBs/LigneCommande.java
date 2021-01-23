@@ -3,12 +3,13 @@ package EJBs;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import util.util;
 
 @Entity
 @Table(name="ligne_commande")
@@ -20,23 +21,30 @@ public class LigneCommande implements Serializable {
 	 */
 	private static final long serialVersionUID = 8528748480294024810L;
 
-	@Id
+	
 	private int id_ligne;
 	
 	private int id_commande,id_produit,qte;
 	private float prix_unitaire,sous_tot;
 	private String nom;
 	
-//	@Transient
-//	private String prix_unitaireString;
-//	
-//	
-//	@Transient
-//	private String sous_totString;
+
+	private String prix_unitaireString;
+	
+	
+	
+	private String sous_totString;
 	
 	public LigneCommande() {}
 	
 	
+	
+	public void setSous_totString(String sous_totString) {
+		this.sous_totString = sous_totString;
+	}
+
+
+
 	public int getId_commande() {
 		return id_commande;
 	}
@@ -59,9 +67,11 @@ public class LigneCommande implements Serializable {
 		return prix_unitaire;
 	}
 	
-//	public String getPrix_unitaireString() {
-//		return  util.toPrice(prix_unitaire);
-//	}
+	@Transient
+	public String getPrix_unitaireString() {
+		prix_unitaireString = String.format("%.2f",prix_unitaire);
+		return  prix_unitaireString;
+	}
 	
 	public void setPrix_unitaire(float prix_unitaire) {
 		this.prix_unitaire = prix_unitaire;
@@ -71,9 +81,11 @@ public class LigneCommande implements Serializable {
 		return sous_tot;
 	}
 	
-//	public String getSous_totString() {
-//		return  util.toPrice(sous_tot);
-//	}
+	@Transient
+	public String getSous_totString() {
+		sous_totString = String.format("%.2f",sous_tot);
+		return  sous_totString;
+	}
 	
 	
 	public void setSous_tot(float sous_tot) {
@@ -91,9 +103,20 @@ public class LigneCommande implements Serializable {
 	}
 
 
-//	public void setPrix_unitaireString(String prix_unitaireString) {
-//		this.prix_unitaireString = prix_unitaireString;
-//	}
+	public void setPrix_unitaireString(String prix_unitaireString) {
+		this.prix_unitaireString = prix_unitaireString;
+	}
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	public int getId_ligne() {
+		return id_ligne;
+	}
+
+
+	public void setId_ligne(int id_ligne) {
+		this.id_ligne = id_ligne;
+	}
 	
 	
 	

@@ -23,10 +23,7 @@ public class ProductManager {
 	
 	public Product getProduit(int id) {
 		em.clear();
-		Product p = em.find(Product.class,id);
-		
-		System.out.println("Description : " + p.getDescription());
-		
+		Product p = em.find(Product.class,id);		
 		return p;
 	}
 	
@@ -63,13 +60,22 @@ public class ProductManager {
 
 
 	public List<Product> getProduitsCategorie(String cat) {
-		System.out.println("cat="+cat);
 		em.clear();
 		TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p WHERE p.categorie = :cat", Product.class);
 		query.setParameter("cat",cat);
 		List<Product> result = query.getResultList();
-		System.out.println("result.size()="+result.size());
 		return result;
+	}
+
+
+	public void changeQte(int id_produit, int qte) throws Exception {
+		Product p = em.find(Product.class, id_produit);
+		if(p.getStock() >= qte) {
+			em.getTransaction().begin();
+			p.setStock(p.getStock()-qte);
+			em.getTransaction().commit();
+		}
+		else throw new Exception();
 	}
 	 
 	

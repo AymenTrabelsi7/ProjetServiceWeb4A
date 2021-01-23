@@ -11,15 +11,12 @@
 									<div class="col">
 
 										<c:forEach items="${param.produits}" var="p">
-										
 											<jsp:include page="/WEB-INF/common/ligne_commande_box.jsp">
 												<jsp:param name="qte" value="${p.qte}" />
-												<jsp:param name="id" value="${p.id}" />
+												<jsp:param name="id" value="${p.idProduit}" />
 												<jsp:param name="nom" value="${p.nom}" />
-												<jsp:param name="sousTot" value="${p.sousTot}" />
+												<jsp:param name="sousTotString" value="${p.sousTotString}" />
 											</jsp:include>
-											
-										
 										</c:forEach>
 
 										
@@ -29,7 +26,7 @@
 								
 								<div class="col text-danger">
 								
-									<h2>Total : ${param.totalTtc}</h2>
+									<h2>Total : ${param.totalTtc}&euro;</h2>
 								
 								</div>
 							</div>

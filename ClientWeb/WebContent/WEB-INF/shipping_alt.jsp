@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -39,13 +40,20 @@
 								<tr>
 								
 									<td>
-									
+										<fmt:parseNumber var="prixNum" value="${s.prix}" type="number"/>
+										<c:choose>										
+											<c:when test="${prixNum>0}"><c:set var="prixString" value="${s.prixString}&euro;"/></c:when>
+											<c:otherwise><c:set var="prixString" value="Gratuit"/></c:otherwise>
+										</c:choose>
+										
 										<jsp:include page="/WEB-INF/common/shipping_box.jsp">
 											<jsp:param name="id" value="${s.idShipping}" />
 											<jsp:param name="nom" value="${s.nomComplet}" />
 											<jsp:param name="icon" value="${s.icon}" />
 											<jsp:param name="varNom" value="${s.nomVar}" />
+											<jsp:param name="prixString" value="${prixString}" />
 											<jsp:param name="prix" value="${s.prix}" />
+											<jsp:param name="date" value="${s.date}" />
 										</jsp:include>
 									
 									</td>
@@ -61,7 +69,7 @@
 					</table>	
 					
 					
-					<h3 class="my-4">Total Commande (sans frais de livraison) : <span class="text-danger">${basketTotal} &euro;</span></h3>
+					<h3 class="my-4">Total Commande (sans frais de livraison) : <span class="text-danger">${basketTotalString} &euro;</span></h3>
 				
 
 				</div>

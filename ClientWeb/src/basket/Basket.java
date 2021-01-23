@@ -6,10 +6,11 @@ public class Basket {
 	
 	private ArrayList<BasketProduct> products;
 	private float total;
+	private String totalString;
 	
 	public Basket() {
 		this.products = new ArrayList<BasketProduct>(0);
-		this.total = 0;
+		this.total = 0.00f;
 	}
 	
 	public int findIndexProduit(int id) {
@@ -28,6 +29,8 @@ public class Basket {
 		p.setQuantite(qte);
 		p.setSousTotal(qte*produit.getPrix());
 		p.setImg(produit.getImg());
+		p.setPrixString(produit.getPrixString());
+		p.setSousTotalString(String.format("%.2f", p.getSousTotal()));
 		System.out.println(p);
 		this.getProducts().add(p);
 		this.setTotal(this.getTotal()+p.getSousTotal());
@@ -49,6 +52,7 @@ public class Basket {
 			p.setQuantite(qte);
 			float ancienSousTotal = p.getSousTotal();
 			p.setSousTotal(qte*p.getPrix());
+			p.setSousTotalString(String.format("%.2f", p.getSousTotal()));
 			this.setTotal(this.getTotal()+(p.getSousTotal()-ancienSousTotal));
 		}
 	}
@@ -67,6 +71,15 @@ public class Basket {
 
 	public void setTotal(float total) {
 		this.total = total;
+	}
+
+	public String getTotalString() {
+		totalString = String.format("%.2f", this.getTotal());
+		return totalString;
+	}
+
+	public void setTotalString(String totalString) {
+		this.totalString = totalString;
 	}
 	
 	

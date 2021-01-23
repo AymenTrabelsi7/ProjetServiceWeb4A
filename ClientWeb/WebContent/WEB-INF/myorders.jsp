@@ -40,8 +40,8 @@
 											<jsp:param name="id" value="${c.id}" />
 											<jsp:param name="dateCommande" value="${c.dateCommande}" />
 											<jsp:param name="statut" value="${c.statut}" />
-											<jsp:param name="produits" value="${c.produits}" />
-											<jsp:param name="totalTtc" value="${c.totalTtc}" />
+											<jsp:param name="produits" value="${c.getProduits()}" />
+											<jsp:param name="totalTtc" value="${c.totalTtcString}" />
 										</jsp:include>
 									
 									<hr>

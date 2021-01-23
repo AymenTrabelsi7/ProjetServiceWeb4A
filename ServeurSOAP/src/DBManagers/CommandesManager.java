@@ -1,10 +1,6 @@
 package DBManagers;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -14,8 +10,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import org.apache.openjpa.util.IntId;
+
 import EJBs.Commande;
-import EJBs.Product;
 
 @Stateless
 @LocalBean
@@ -26,10 +23,12 @@ public class CommandesManager {
 	
 	public CommandesManager() {}
 	
-	public void ajouterCommande(Commande c) {
+	public int ajouterCommande(Commande c) {
 		em.getTransaction().begin();
 		em.persist(c);
 		em.getTransaction().commit();
+		IntId id = (IntId) emfactory.getPersistenceUnitUtil().getIdentifier(c);
+		return id.getId();
 	}
 	
 	public void updateStatut(int id,String stat) {

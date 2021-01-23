@@ -41,7 +41,7 @@ public class Payment extends HttpServlet implements Filter  {
 		sess = request.getSession();
 		soapinterface.Commande commande = (Commande) sess.getAttribute("commande");
 		if(commande != null && commande.getTotalTtc() > 0) {
-			request.setAttribute("commandeTotal", commande.getTotalTtc());
+			request.setAttribute("commandeTotal", commande.getTotalTtcString());
 			this.getServletContext().getRequestDispatcher("/WEB-INF/payment.jsp").forward(request, response);
 		} else response.sendRedirect("shipping");
 		sess.removeAttribute("cardError");
@@ -57,19 +57,18 @@ public class Payment extends HttpServlet implements Filter  {
 		sess = request.getSession();
 		soapinterface.Commande commande = (Commande) sess.getAttribute("commande");
 		String method = request.getParameter("paymentMethod");
+		boolean success = false;
+		String address = null;
 		
 		if(method.equals("card")) {			
 			String cardnumber = request.getParameter("cardnumber");
 			String expiration = request.getParameter("expiration");
 			String cvc = request.getParameter("cvc");
-			String address = request.getParameter("address");
+			address = request.getParameter("address");
 			
 			if(this.verifyCard(cardnumber, expiration, cvc)) {				
 				commande.setMoyenPaiement(method);
-				commande.setAdresse(address);
-				
-				commande_stub.validerCommande(commande);
-				response.sendRedirect("orderconfirmation");
+				success = true;
 			} else {
 				sess.setAttribute("cardError", true);
 				response.sendRedirect("payment");
@@ -80,8 +79,26 @@ public class Payment extends HttpServlet implements Filter  {
 		
 		else if(method.equals("paypal")) {	
 			commande.setMoyenPaiement(method);
-			String email = request.getParameter("paypalEmail");
-			String pw = request.getParameter("paypalMdp");
+			//String email = request.getParameter("paypalEmail");
+			//String pw = request.getParameter("paypalMdp");
+			success = true;
+		}
+		
+		if(success) {
+			
+			commande.setAdresse(address);
+			commande_stub.validerCommande(commande);
+			
+			
+			
+			basket.Basket basket = new basket.Basket();
+			sess.setAttribute("userBasket", basket.getProducts());
+			sess.setAttribute("basketTotal", basket.getTotal());
+			sess.setAttribute("basketTotalString", basket.getTotalString());
+			
+			
+			
+			response.sendRedirect("orderconfirmation");
 		}
 	}
 	

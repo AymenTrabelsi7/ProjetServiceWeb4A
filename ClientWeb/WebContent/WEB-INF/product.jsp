@@ -49,6 +49,10 @@
 											<c:if test="${addedToCart == true}">
 												<div class="badge bg-success my-4 mx-1 py-1 px-2"><h5>Produit ajouté au panier !</h5></div>
 											</c:if>	
+											
+											<c:if test="${qteError == true}">
+												<div class="badge bg-danger my-4 mx-1 py-1 px-2"><h5>Vous ne pouvez pas prendre plus de produits qu'il n'y en a en stock.</h5></div>
+											</c:if>	
 										</div>
 									
 										<div class="item-container">
@@ -73,7 +77,7 @@
 													<hr>
 													<div class="product-price">
 														<h3>
-															<c:out value="${produit.prix}" />
+															<c:out value="${produit.prixString}" />
 															&euro;
 														</h3>
 													</div>
